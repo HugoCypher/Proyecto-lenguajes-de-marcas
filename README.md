@@ -35,10 +35,22 @@ aula-xml/
 └── assets/             → (iconos, logos…)
 ```
 
-## Próxima fase
+## Fases
 
-**Fase 2 · Contenido** → Convertir el PDF del tema en unidades y lecciones reales dentro de `temario.html` y `data/lessons.json`.
+- [x] Fase 1 · Diseño → Prototipo navegable
+- [x] Fase 2 · Contenido → Temario con unidades y ejemplos en `temario.html`
+- [ ] Fase 3 · Práctica → Laboratorio XML y ejercicios
+- [ ] Fase 4 · Datos → Guardar progreso
+- [ ] Fase 5 · IA y n8n
+- [ ] Fase 6 · Evaluación y demo
 
+## Nota sobre los ejemplos de XML
+
+En el temario los ejemplos de código usan &lt; y &gt; en lugar de < y >.
+
+Se hace así para que el navegador muestre las etiquetas como texto
+y no las interprete como HTML real. Si se pusieran los < > normales,
+la página se rompería o no se verían bien los ejemplos.
 ---
 
 Alumno: Hugo Fernández Riquelme  

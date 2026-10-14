@@ -5,15 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aula XML - Temario</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .bloque {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .bloque h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .codigo {
+      background: #f1f5f9;
+      border: 1px solid var(--borde);
+      padding: 12px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 10px 0;
+      white-space: pre;
+    }
+
+    [data-theme="dark"] .codigo {
+      background: #0a3d3a;
+    }
+
+    .pregunta {
+      margin-top: 14px;
+      padding: 12px;
+      background: var(--gris-claro);
+      border-radius: 6px;
+    }
+
+    .pregunta label {
+      display: block;
+      margin: 6px 0;
+    }
+  </style>
 </head>
 <body>
 
   <header>
     <div class="header-content">
       <a href="index.html" class="logo">
+        <span>XML</span>
         <span>Aula XML</span>
       </a>
-
       <nav id="menu">
         <a href="index.html">Inicio</a>
         <a href="temario.html" class="activo">Temario</a>
@@ -21,53 +63,124 @@
         <a href="practicas.html">Prácticas</a>
         <a href="progreso.html">Mi progreso</a>
       </nav>
+      <div class="header-botones">
+        <button class="btn-tema" id="cambiarTema">🌓</button>
+        <button class="btn-menu" id="abrirMenu">☰</button>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <h1 style="margin-bottom: 8px;">Temario</h1>
-      <p style="color: var(--texto2); margin-bottom: 28px;">
-        Unidades basadas en el tema de lenguajes de marcas y XML.
-        Cada una tendrá explicación, ejemplos y una comprobación rápida.
+      <h1>Temario</h1>
+      <p style="color: var(--texto2); margin-bottom: 24px;">
+        Unidades del tema de lenguajes de marcas y XML.
       </p>
 
-      <div class="grid-tarjetas">
-        <div class="tarjeta">
-          <span class="badge">Unidad 1</span>
-          <h3 style="margin: 10px 0 6px;">Conceptos generales</h3>
-          <p style="font-size: 0.9rem; color: var(--texto2);">Qué son los lenguajes de marcas, tipos y herramientas.</p>
-          <p style="font-size: 0.8rem; color: var(--texto3); margin-top: 12px;">Contenido en Fase 2</p>
-        </div>
-
-        <div class="tarjeta">
-          <span class="badge">Unidad 2</span>
-          <h3 style="margin: 10px 0 6px;">Estructura y sintaxis</h3>
-          <p style="font-size: 0.9rem; color: var(--texto2);">Elementos, atributos, declaración XML y reglas básicas.</p>
-          <p style="font-size: 0.8rem; color: var(--texto3); margin-top: 12px;">Contenido en Fase 2</p>
-        </div>
-
-        <div class="tarjeta">
-          <span class="badge">Unidad 3</span>
-          <h3 style="margin: 10px 0 6px;">Documentos bien formados</h3>
-          <p style="font-size: 0.9rem; color: var(--texto2);">Etiquetas, anidación, raíz única y comillas en atributos.</p>
-          <p style="font-size: 0.8rem; color: var(--texto3); margin-top: 12px;">Contenido en Fase 2</p>
-        </div>
-
-        <div class="tarjeta">
-          <span class="badge">Unidad 4</span>
-          <h3 style="margin: 10px 0 6px;">Bien formado vs validado</h3>
-          <p style="font-size: 0.9rem; color: var(--texto2);">Diferencia entre buena formación y validación con DTD o XSD.</p>
-          <p style="font-size: 0.8rem; color: var(--texto3); margin-top: 12px;">Contenido en Fase 2</p>
-        </div>
-
-        <div class="tarjeta">
-          <span class="badge">Unidad 5</span>
-          <h3 style="margin: 10px 0 6px;">Namespaces</h3>
-          <p style="font-size: 0.9rem; color: var(--texto2);">Espacios de nombres y su uso en documentos XML.</p>
-          <p style="font-size: 0.8rem; color: var(--texto3); margin-top: 12px;">Contenido en Fase 2</p>
+      <!-- Unidad 1 -->
+      <div class="bloque">
+        <span class="badge">Unidad 1</span>
+        <h2>Conceptos generales</h2>
+        <p>Los lenguajes de marcas sirven para estructurar información. No programan, solo etiquetan datos.</p>
+        <p>XML permite crear tus propias etiquetas. Se usa para intercambiar datos entre programas.</p>
+        <p><strong>Ejemplo:</strong></p>
+        <div class="codigo">&lt;persona&gt;
+  &lt;nombre&gt;Laura&lt;/nombre&gt;
+  &lt;edad&gt;22&lt;/edad&gt;
+&lt;/persona&gt;</div>
+        <p><strong>Árbol:</strong> persona → nombre, edad</p>
+        <div class="pregunta">
+          <strong>¿Para qué sirve XML?</strong>
+          <label><input type="radio" name="p1"> Es un lenguaje de programación</label>
+          <label><input type="radio" name="p1"> Estructurar y describir datos</label>
+          <label><input type="radio" name="p1"> Solo para páginas web</label>
         </div>
       </div>
+
+      <!-- Unidad 2 -->
+      <div class="bloque">
+        <span class="badge">Unidad 2</span>
+        <h2>Estructura y sintaxis</h2>
+        <p>Un XML suele empezar con la declaración:</p>
+        <div class="codigo">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div>
+        <p>Los elementos tienen etiqueta de apertura y de cierre. Los atributos van entre comillas:</p>
+        <div class="codigo">&lt;libro id="1" idioma="es"&gt;
+  &lt;titulo&gt;Aprendiendo XML&lt;/titulo&gt;
+&lt;/libro&gt;</div>
+        <div class="pregunta">
+          <strong>¿Cómo se escriben los atributos?</strong>
+          <label><input type="radio" name="p2"> Sin comillas</label>
+          <label><input type="radio" name="p2"> Entre comillas</label>
+          <label><input type="radio" name="p2"> Solo en HTML</label>
+        </div>
+      </div>
+
+      <!-- Unidad 3 -->
+      <div class="bloque">
+        <span class="badge">Unidad 3</span>
+        <h2>Documentos bien formados</h2>
+        <p>Para que un XML esté bien formado tiene que cumplir:</p>
+        <ul style="margin: 10px 0 10px 20px;">
+          <li>Una sola raíz</li>
+          <li>Etiquetas abiertas y cerradas</li>
+          <li>Nombres iguales (también mayúsculas)</li>
+          <li>Anidación correcta</li>
+          <li>Atributos entre comillas</li>
+        </ul>
+        <p><strong>Correcto:</strong></p>
+        <div class="codigo">&lt;biblioteca&gt;
+  &lt;libro&gt;
+    &lt;titulo&gt;XML básico&lt;/titulo&gt;
+  &lt;/libro&gt;
+&lt;/biblioteca&gt;</div>
+        <p><strong>Incorrecto (mala anidación):</strong></p>
+        <div class="codigo">&lt;biblioteca&gt;
+  &lt;libro&gt;
+    &lt;titulo&gt;XML básico
+  &lt;/libro&gt;
+    &lt;/titulo&gt;
+&lt;/biblioteca&gt;</div>
+        <div class="pregunta">
+          <strong>¿Cuántas raíces puede haber?</strong>
+          <label><input type="radio" name="p3"> Varias</label>
+          <label><input type="radio" name="p3"> Solo una</label>
+          <label><input type="radio" name="p3"> Ninguna</label>
+        </div>
+      </div>
+
+      <!-- Unidad 4 -->
+      <div class="bloque">
+        <span class="badge">Unidad 4</span>
+        <h2>Bien formado vs validado</h2>
+        <p><strong>Bien formado</strong> = cumple las reglas de sintaxis (etiquetas, anidación, etc.).</p>
+        <p><strong>Válido</strong> = además sigue un DTD o XSD (estructura concreta).</p>
+        <p>Si no está bien formado, no puede ser válido.</p>
+        <div class="pregunta">
+          <strong>¿Qué es cierto?</strong>
+          <label><input type="radio" name="p4"> Todo lo bien formado es válido</label>
+          <label><input type="radio" name="p4"> Todo lo válido está bien formado</label>
+          <label><input type="radio" name="p4"> Son lo mismo</label>
+        </div>
+      </div>
+
+      <!-- Unidad 5 -->
+      <div class="bloque">
+        <span class="badge">Unidad 5</span>
+        <h2>Namespaces</h2>
+        <p>Los namespaces evitan que dos etiquetas con el mismo nombre se confundan cuando se mezclan vocabularios distintos.</p>
+        <div class="codigo">&lt;root xmlns:lib="http://ejemplo.com/libros"&gt;
+  &lt;lib:libro&gt;
+    &lt;lib:titulo&gt;XML práctico&lt;/lib:titulo&gt;
+  &lt;/lib:libro&gt;
+&lt;/root&gt;</div>
+        <div class="pregunta">
+          <strong>¿Para qué sirven los namespaces?</strong>
+          <label><input type="radio" name="p5"> Dar estilo</label>
+          <label><input type="radio" name="p5"> Evitar conflictos de nombres</label>
+          <label><input type="radio" name="p5"> Solo en HTML</label>
+        </div>
+      </div>
+
     </div>
   </main>
 
