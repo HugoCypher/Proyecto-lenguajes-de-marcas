@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula XML - Laboratorio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .lab {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 800px) {
+      .lab {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 260px;
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      padding: 14px;
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      background: var(--blanco);
+      color: var(--texto);
+      resize: vertical;
+    }
+
+    textarea:focus {
+      outline: 2px solid var(--verde);
+    }
+
+    .resultado {
+      min-height: 260px;
+      background: var(--gris-claro);
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.9rem;
+    }
+
+    .botones-lab {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <span>XML</span>
+        <span>Aula XML</span>
+      </a>
+
+      <nav id="menu">
+        <a href="index.html">Inicio</a>
+        <a href="temario.html">Temario</a>
+        <a href="laboratorio.html" class="activo">Laboratorio</a>
+        <a href="practicas.html">Prácticas</a>
+        <a href="progreso.html">Mi progreso</a>
+      </nav>
+
+      <div class="header-botones">
+        <button class="btn-tema" id="cambiarTema" title="Cambiar tema">🌓</button>
+        <button class="btn-menu" id="abrirMenu" title="Menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 style="margin-bottom: 8px;">Laboratorio XML</h1>
+      <p style="color: var(--texto2); margin-bottom: 24px;">
+        Pega un fragmento XML y comprueba reglas básicas:
+        etiquetas, anidación, raíz única y atributos.
+      </p>
+
+      <div class="lab">
+        <div>
+          <label for="xmlInput" style="font-weight: 600; display: block; margin-bottom: 6px;">Código XML</label>
+          <textarea id="xmlInput" placeholder='Ejemplo:
+<?xml version="1.0"?>
+<libro>
+  <titulo>Aprendiendo XML</titulo>
+  <autor>Ana</autor>
+</libro>'></textarea>
+
+          <div class="botones-lab">
+            <button class="boton boton-verde" id="btnAnalizar" disabled>Analizar</button>
+            <button class="boton boton-borde" id="btnLimpiar">Limpiar</button>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--texto3); margin-top: 10px;">
+            La validación se implementará en la Fase 3.
+          </p>
+        </div>
+
+        <div>
+          <label style="font-weight: 600; display: block; margin-bottom: 6px;">Resultado</label>
+          <div class="resultado" id="resultado">
+            Aquí saldrán los errores o el mensaje de que está bien formado.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>Aula XML - Hugo Fernández Riquelme - 2026</p>
+      <p>Lenguajes de marcas</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

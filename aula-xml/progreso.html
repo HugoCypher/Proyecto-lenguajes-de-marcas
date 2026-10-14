@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula XML - Mi progreso</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <span>XML</span>
+        <span>Aula XML</span>
+      </a>
+
+      <nav id="menu">
+        <a href="index.html">Inicio</a>
+        <a href="temario.html">Temario</a>
+        <a href="laboratorio.html">Laboratorio</a>
+        <a href="practicas.html">Prácticas</a>
+        <a href="progreso.html" class="activo">Mi progreso</a>
+      </nav>
+
+      <div class="header-botones">
+        <button class="btn-tema" id="cambiarTema" title="Cambiar tema">🌓</button>
+        <button class="btn-menu" id="abrirMenu" title="Menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 style="margin-bottom: 8px;">Mi progreso</h1>
+      <p style="color: var(--texto2); margin-bottom: 24px;">
+        Aquí se verán las lecciones completadas, resultados e intentos.
+      </p>
+
+      <div class="tarjeta" style="margin-bottom: 20px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+          <strong>Avance general</strong>
+          <span class="badge">0%</span>
+        </div>
+        <div class="barra">
+          <div class="barra-relleno" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="grid-tarjetas">
+        <div class="tarjeta">
+          <h3>Lecciones</h3>
+          <p style="font-size: 1.4rem; margin: 8px 0;">0 / 0</p>
+          <p style="font-size: 0.85rem; color: var(--texto3);">Se guardará en Fase 4</p>
+        </div>
+
+        <div class="tarjeta">
+          <h3>Ejercicios</h3>
+          <p style="font-size: 1.4rem; margin: 8px 0;">0 intentos</p>
+          <p style="font-size: 0.85rem; color: var(--texto3);">Se guardará en Fase 4</p>
+        </div>
+
+        <div class="tarjeta">
+          <h3>A repasar</h3>
+          <p style="font-size: 1.4rem; margin: 8px 0;">Ninguno</p>
+          <p style="font-size: 0.85rem; color: var(--texto3);">Según resultados</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>Aula XML - Hugo Fernández Riquelme - 2026</p>
+      <p>Lenguajes de marcas</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
