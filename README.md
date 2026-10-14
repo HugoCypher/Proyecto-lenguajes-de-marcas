@@ -1,3 +1,4 @@
+text
 # Proyecto-lenguajes-de-marcas
 
 # Aula XML · Fase 1 · Diseño
@@ -15,6 +16,7 @@
 
 ## Estructura de carpetas
 
+```text
 aula-xml/
 ├── index.html          → Inicio
 ├── temario.html        → Temario (Fase 2)
