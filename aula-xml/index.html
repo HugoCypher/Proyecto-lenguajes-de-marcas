@@ -3,229 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aula XML - Plataforma web interactiva de aprendizaje de lenguajes de marcas y XML">
-  <title>Aula XML · Inicio</title>
+  <title>Aula XML - Inicio</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* ===== Estilos del inicio - todo en azul verdecito ===== */
-    .hero-colored {
-      position: relative;
-      background: linear-gradient(135deg, #0f766e 0%, #0d9488 40%, #0891b2 100%);
+    .hero {
+      background: linear-gradient(135deg, #0f766e, #0d9488, #0891b2);
       color: white;
-      border-radius: var(--radius-xl);
-      padding: var(--space-12) var(--space-6);
-      margin-bottom: var(--space-10);
-      overflow: hidden;
+      border-radius: 12px;
+      padding: 50px 24px;
+      text-align: center;
+      margin-bottom: 40px;
     }
 
-    .hero-colored::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 45%),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 40%);
-      pointer-events: none;
+    .hero h1 {
+      font-size: 2.2rem;
+      margin: 12px 0;
     }
 
-    .hero-colored .badge {
-      background: rgba(255,255,255,0.22);
-      color: white;
-      backdrop-filter: blur(4px);
+    .hero p {
+      max-width: 560px;
+      margin: 0 auto 24px;
+      opacity: 0.95;
     }
 
-    .hero-colored .hero-title {
-      color: white;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-
-    .hero-colored .hero-subtitle {
-      color: rgba(255,255,255,0.92);
-    }
-
-    .hero-colored .btn-primary {
+    .hero .boton-verde {
       background: white;
       color: #0f766e;
     }
 
-    .hero-colored .btn-primary:hover {
+    .hero .boton-verde:hover {
       background: #f0fdfa;
-      color: #134e4a;
     }
 
-    .hero-colored .btn-outline {
-      border-color: rgba(255,255,255,0.65);
+    .hero .boton-borde {
+      border-color: rgba(255,255,255,0.6);
       color: white;
     }
 
-    .hero-colored .btn-outline:hover {
-      background: rgba(255,255,255,0.18);
-      border-color: white;
+    .hero .boton-borde:hover {
+      background: rgba(255,255,255,0.15);
     }
 
-    /* Cards con tonos teal */
-    .card-feature {
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      background: var(--color-surface);
+    .acciones {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .card-feature:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+    .tarjeta-link {
+      text-decoration: none;
+      color: inherit;
+      border-top: 3px solid var(--verde);
+      transition: transform 0.15s;
     }
 
-    .card-feature .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-lg);
-      display: grid;
-      place-items: center;
-      font-size: 1.4rem;
-      margin-bottom: var(--space-4);
+    .tarjeta-link:hover {
+      transform: translateY(-3px);
+    }
+
+    .icono {
+      width: 44px;
+      height: 44px;
+      background: var(--verde);
       color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
     }
 
-    .card-feature.temario .card-icon { background: linear-gradient(135deg, #0d9488, #0f766e); }
-    .card-feature.laboratorio .card-icon { background: linear-gradient(135deg, #14b8a6, #0d9488); }
-    .card-feature.practicas .card-icon { background: linear-gradient(135deg, #0891b2, #0e7490); }
-    .card-feature.progreso .card-icon { background: linear-gradient(135deg, #2dd4bf, #0d9488); }
-
-    .card-feature.temario { border-top: 3px solid #0d9488; }
-    .card-feature.laboratorio { border-top: 3px solid #14b8a6; }
-    .card-feature.practicas { border-top: 3px solid #0891b2; }
-    .card-feature.progreso { border-top: 3px solid #2dd4bf; }
-
-    /* Progress card también teal */
-    .progress-card {
-      background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    .progreso-caja {
+      background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
       border: 1px solid #99f6e4;
-    }
-
-    [data-theme="dark"] .progress-card {
-      background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
-      border-color: #0f766e;
+      border-radius: 10px;
+      padding: 20px;
     }
   </style>
 </head>
 <body>
-  <!-- ========== HEADER ========== -->
-  <header class="site-header">
-    <div class="header-inner">
+
+  <header>
+    <div class="header-content">
       <a href="index.html" class="logo">
-        <span class="logo-icon">XML</span>
+        <span>XML</span>
         <span>Aula XML</span>
       </a>
 
-      <nav class="nav-main" id="nav-main" aria-label="Navegación principal">
-        <a href="index.html" class="nav-link">Inicio</a>
-        <a href="temario.html" class="nav-link">Temario</a>
-        <a href="laboratorio.html" class="nav-link">Laboratorio</a>
-        <a href="practicas.html" class="nav-link">Prácticas</a>
-        <a href="progreso.html" class="nav-link">Mi progreso</a>
+      <nav id="menu">
+        <a href="index.html" class="activo">Inicio</a>
+        <a href="temario.html">Temario</a>
+        <a href="laboratorio.html">Laboratorio</a>
+        <a href="practicas.html">Prácticas</a>
+        <a href="progreso.html">Mi progreso</a>
       </nav>
 
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
-          <svg class="icon-sun hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-          </svg>
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-          </svg>
-        </button>
-
-        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
+      <div class="header-botones">
+        <button class="btn-tema" id="cambiarTema" title="Cambiar tema">🌓</button>
+        <button class="btn-menu" id="abrirMenu" title="Menú">☰</button>
       </div>
     </div>
   </header>
 
-  <!-- ========== MAIN ========== -->
-  <main class="main-content">
+  <main>
     <div class="container">
 
-      <!-- Hero -->
-      <section class="hero hero-colored">
-        <span class="badge" style="margin-bottom: 1rem;">Plataforma de aprendizaje</span>
-        <h1 class="hero-title">Aprende XML de forma activa</h1>
-        <p class="hero-subtitle">
-          Transforma el estudio de lenguajes de marcas en una experiencia práctica:
-          lee, experimenta, detecta errores y recibe feedback inmediato.
-        </p>
-        <div class="hero-actions">
-          <a href="temario.html" class="btn btn-primary btn-lg">Empezar temario</a>
-          <a href="laboratorio.html" class="btn btn-outline btn-lg">Ir al laboratorio</a>
+      <section class="hero">
+        <span class="badge" style="background:rgba(255,255,255,0.2);color:white;">Aprendizaje interactivo</span>
+        <h1>Aprende XML de forma práctica</h1>
+        <p>Lee, prueba, detecta errores y recibe explicaciones. Todo centrado en el tema de lenguajes de marcas.</p>
+        <div class="acciones">
+          <a href="temario.html" class="boton boton-verde">Ir al temario</a>
+          <a href="laboratorio.html" class="boton boton-borde">Probar laboratorio</a>
         </div>
       </section>
 
-      <!-- Accesos rápidos -->
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">Accesos rápidos</h2>
-          <p class="section-desc">Todo lo que necesitas para practicar XML en un solo lugar.</p>
-        </div>
+      <section style="margin-bottom: 40px;">
+        <h2 style="margin-bottom: 8px;">Secciones</h2>
+        <p style="color: var(--texto2); margin-bottom: 20px;">Accede a cada parte de la plataforma.</p>
 
-        <div class="cards-grid">
-          <a href="temario.html" class="card card-feature temario" style="text-decoration: none; color: inherit;">
-            <div class="card-icon">📚</div>
-            <h3 class="card-title">Temario</h3>
-            <p class="card-text">Unidades claras con ejemplos comentados, árbol de elementos y comprobaciones rápidas.</p>
+        <div class="grid-tarjetas">
+          <a href="temario.html" class="tarjeta tarjeta-link">
+            <div class="icono">📚</div>
+            <h3>Temario</h3>
+            <p style="font-size: 0.9rem; color: var(--texto2); margin-top: 6px;">Unidades con ejemplos y explicaciones del tema.</p>
           </a>
 
-          <a href="laboratorio.html" class="card card-feature laboratorio" style="text-decoration: none; color: inherit;">
-            <div class="card-icon">🧪</div>
-            <h3 class="card-title">Laboratorio XML</h3>
-            <p class="card-text">Pega tu XML y detecta errores de sintaxis: etiquetas, anidación, raíz única y atributos.</p>
+          <a href="laboratorio.html" class="tarjeta tarjeta-link">
+            <div class="icono">🧪</div>
+            <h3>Laboratorio</h3>
+            <p style="font-size: 0.9rem; color: var(--texto2); margin-top: 6px;">Pega XML y comprueba si está bien formado.</p>
           </a>
 
-          <a href="practicas.html" class="card card-feature practicas" style="text-decoration: none; color: inherit;">
-            <div class="card-icon">✏️</div>
-            <h3 class="card-title">Prácticas</h3>
-            <p class="card-text">Tests, ejercicios de encontrar errores y modo examen con feedback inmediato.</p>
+          <a href="practicas.html" class="tarjeta tarjeta-link">
+            <div class="icono">✏️</div>
+            <h3>Prácticas</h3>
+            <p style="font-size: 0.9rem; color: var(--texto2); margin-top: 6px;">Tests y ejercicios de encontrar errores.</p>
           </a>
 
-          <a href="progreso.html" class="card card-feature progreso" style="text-decoration: none; color: inherit;">
-            <div class="card-icon">📊</div>
-            <h3 class="card-title">Mi progreso</h3>
-            <p class="card-text">Lecciones completadas, resultados e indicadores de lo que conviene repasar.</p>
+          <a href="progreso.html" class="tarjeta tarjeta-link">
+            <div class="icono">📊</div>
+            <h3>Mi progreso</h3>
+            <p style="font-size: 0.9rem; color: var(--texto2); margin-top: 6px;">Lecciones hechas y resultados.</p>
           </a>
         </div>
       </section>
 
-      <!-- Progreso -->
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">Tu progreso</h2>
-          <p class="section-desc">Resumen general (se activará en fases posteriores).</p>
-        </div>
+      <section>
+        <h2 style="margin-bottom: 8px;">Tu progreso</h2>
+        <p style="color: var(--texto2); margin-bottom: 16px;">Se irá actualizando cuando completes actividades.</p>
 
-        <div class="card progress-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <span style="font-weight: 600;">Avance general</span>
-            <span class="badge badge-primary">0 %</span>
+        <div class="progreso-caja">
+          <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+            <strong>Avance</strong>
+            <span class="badge">0%</span>
           </div>
-          <div class="progress-bar">
-            <div class="progress-bar-fill" style="width: 0%;"></div>
+          <div class="barra">
+            <div class="barra-relleno" style="width:0%"></div>
           </div>
-          <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-text-muted);">
-            Completa lecciones y ejercicios para ver tu avance aquí.
-          </p>
+          <p style="font-size: 0.85rem; color: var(--texto3); margin-top: 12px;">Aún no hay datos guardados.</p>
         </div>
       </section>
 
     </div>
   </main>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>Aula XML · Proyecto académico · Hugo Fernández Riquelme · Octubre 2026</p>
-      <p>Lenguajes de marcas · XML</p>
+  <footer>
+    <div class="footer-content">
+      <p>Aula XML - Hugo Fernández Riquelme - 2026</p>
+      <p>Lenguajes de marcas</p>
     </div>
   </footer>
 
