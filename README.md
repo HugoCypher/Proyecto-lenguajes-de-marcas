@@ -48,9 +48,8 @@ aula-xml/
 
 En el temario los ejemplos de código usan & lt; y & gt; en lugar de < y >.
 
-Lo he hecho así para que el navegador muestre las etiquetas como texto
-y no las interprete como HTML real. Si se pusieran los < > normales,
-la página se rompería o no se verían bien los ejemplos.
+Lo he hecho así para que el navegador muestre las etiquetas como texto y no las interprete como HTML real. Si se pusieran los < > normales,
+la pagína se rompería o no se verían bien los ejemplos. 
 
 Alumno: Hugo Fernández Riquelme  
 Fecha: octubre 2026
