@@ -17,7 +17,7 @@
     textarea {
       width: 100%;
       min-height: 260px;
-      font-family: var(--mono);
+      font-family: Consolas, Monaco, monospace;
       font-size: 0.9rem;
       padding: 12px;
       border: 1px solid var(--borde);
@@ -36,7 +36,7 @@
     }
     .ok { color: #059669; }
     .error { color: #dc2626; margin: 6px 0; }
-    .botones { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .botones { margin-top: 10px; display: flex; gap: 8px; }
   </style>
 </head>
 <body>
@@ -65,17 +65,13 @@
     <div class="container">
       <h1>Laboratorio XML</h1>
       <p style="color: var(--texto2); margin-bottom: 20px;">
-        Pega un XML y comprueba si está bien formado (etiquetas, anidación, raíz y atributos).
+        Pega un XML y comprueba si está bien formado.
       </p>
 
       <div class="lab">
         <div>
           <label for="xmlInput" style="font-weight: 600;">Código XML</label>
-          <textarea id="xmlInput" placeholder="Ejemplo:
-<?xml version=&quot;1.0&quot;?>
-<libro>
-  <titulo>XML</titulo>
-</libro>"></textarea>
+          <textarea id="xmlInput"></textarea>
           <div class="botones">
             <button class="boton boton-verde" id="btnAnalizar">Analizar</button>
             <button class="boton boton-borde" id="btnLimpiar">Limpiar</button>
@@ -98,87 +94,68 @@
 
   <script src="js/main.js"></script>
   <script>
-    function analizarXML(texto) {
+    function analizar(texto) {
       var errores = [];
       var t = texto.trim();
 
-      if (!t) {
-        errores.push("No has escrito ningún XML.");
+      if (t === "") {
+        errores.push("No has escrito nada.");
         return errores;
       }
 
-      // Quitar declaración XML y comentarios para simplificar
+      // Quitar declaración y comentarios
       t = t.replace(/<\?xml[^?]*\?>/gi, "");
       t = t.replace(/<!--[\s\S]*?-->/g, "");
       t = t.trim();
 
-      // Comprobar atributos sin comillas (muy básico)
-      if (/\s\w+=[^"'\s>]+/.test(t)) {
-        errores.push("Hay atributos sin comillas. Deben ir entre comillas.");
+      // Atributos sin comillas (simple)
+      if (/\s[a-zA-Z_][\w:.-]*=[^"'\s>]+/.test(t)) {
+        errores.push("Hay atributos sin comillas.");
       }
 
-      // Contar etiquetas de apertura y cierre (sin autocierre)
-      var abiertas = t.match(/<[a-zA-Z_][\w:.-]*(?:\s[^>]*)?>/g) || [];
-      var cerradas = t.match(/<\/[a-zA-Z_][\w:.-]*>/g) || [];
-      var auto = t.match(/<[a-zA-Z_][\w:.-]*[^>]*\/>/g) || [];
-
-      // Filtrar las de autocierre de las abiertas
-      abiertas = abiertas.filter(function (e) {
-        return !e.endsWith("/>");
-      });
-
-      if (abiertas.length !== cerradas.length) {
-        errores.push("El número de etiquetas de apertura y de cierre no coincide.");
-      }
-      
-      // Pila para anidación y nombres
+      // Buscar todas las etiquetas
       var pila = [];
-      var regex = /<\/?([a-zA-Z_][\w:.-]*)[^>]*\/?>/g;
+      var raices = 0;
+      var re = /<\/?([a-zA-Z_][\w:.-]*)[^>]*\/?>/g;
       var m;
-      var raiz = null;
-      var numRaices = 0;
 
-      while ((m = regex.exec(t)) !== null) {
-        var etiqueta = m[0];
+      while ((m = re.exec(t)) !== null) {
+        var etiq = m[0];
         var nombre = m[1];
 
-        if (etiqueta.endsWith("/>")) {
-          // autocierre, no entra en pila
-          if (pila.length === 0) {
-            numRaices++;
-            if (!raiz) raiz = nombre;
-          }
+        // Etiqueta de autocierre: <algo />
+        if (etiq.charAt(etiq.length - 2) === "/") {
+          if (pila.length === 0) raices++;
           continue;
         }
 
-        if (etiqueta.startsWith("</")) {
+        // Cierre: </algo>
+        if (etiq.charAt(1) === "/") {
           if (pila.length === 0) {
-            errores.push("Etiqueta de cierre inesperada: </" + nombre + ">");
+            errores.push("Cierre inesperado: </" + nombre + ">");
           } else {
-            var ultima = pila.pop();
-            if (ultima !== nombre) {
-              errores.push("Etiqueta mal cerrada: se abrió <" + ultima + "> y se cerró </" + nombre + ">");
+            var ultimo = pila.pop();
+            if (ultimo !== nombre) {
+              errores.push("Se abrió <" + ultimo + "> y se cerró </" + nombre + ">");
             }
           }
         } else {
-          if (pila.length === 0) {
-            numRaices++;
-            if (!raiz) raiz = nombre;
-          }
+          // Apertura: <algo>
+          if (pila.length === 0) raices++;
           pila.push(nombre);
         }
       }
 
       if (pila.length > 0) {
-        errores.push("Quedan etiquetas sin cerrar: " + pila.join(", "));
+        errores.push("Etiquetas sin cerrar: " + pila.join(", "));
       }
 
-      if (numRaices > 1) {
-        errores.push("Hay más de una raíz. Solo puede haber una.");
+      if (raices === 0) {
+        errores.push("No hay elemento raíz.");
       }
 
-      if (numRaices === 0 && t.length > 0) {
-        errores.push("No se ha encontrado un elemento raíz.");
+      if (raices > 1) {
+        errores.push("Hay más de una raíz (solo puede haber una).");
       }
 
       return errores;
@@ -186,15 +163,15 @@
 
     document.getElementById("btnAnalizar").onclick = function () {
       var texto = document.getElementById("xmlInput").value;
-      var errores = analizarXML(texto);
+      var errores = analizar(texto);
       var caja = document.getElementById("resultado");
 
       if (errores.length === 0) {
-        caja.innerHTML = '<p class="ok"><strong>Bien formado.</strong> No se han detectado errores básicos.</p>';
+        caja.innerHTML = '<p class="ok"><strong>Bien formado.</strong></p>';
       } else {
-        var html = "<p><strong>Errores encontrados:</strong></p>";
+        var html = "<p><strong>Errores:</strong></p>";
         for (var i = 0; i < errores.length; i++) {
-          html += '<p class="error">• ' + errores[i] + "</p>";
+          html += '<p class="error">- ' + errores[i] + "</p>";
         }
         caja.innerHTML = html;
       }
