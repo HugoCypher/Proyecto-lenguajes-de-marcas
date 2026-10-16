@@ -3,152 +3,326 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Aula XML - Prácticas</title>
+
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    .ejercicio {
-      background: var(--blanco);
-      border: 1px solid var(--borde);
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-    .codigo {
-      background: #f1f5f9;
-      border: 1px solid var(--borde);
-      padding: 12px;
-      border-radius: 6px;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      margin: 10px 0;
-      white-space: pre;
-      overflow-x: auto;
-    }
-    [data-theme="dark"] .codigo { background: #0a3d3a; }
-    .ejercicio label { display: block; margin: 6px 0; cursor: pointer; }
-    .msg { margin-top: 8px; font-size: 0.9rem; }
-  </style>
 </head>
+
 <body>
 
   <header>
-    <div class="header-content">
+    <div class="barra">
+
       <a href="index.html" class="logo">
-        <span>XML</span>
+        <b>XML</b>
         <span>Aula XML</span>
       </a>
-      <nav id="menu">
+
+      <nav class="menu" id="menu" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <a href="temario.html">Temario</a>
         <a href="laboratorio.html">Laboratorio</a>
-        <a href="practicas.html" class="activo">Prácticas</a>
+
+        <a
+          href="practicas.html"
+          class="activo"
+          aria-current="page"
+        >
+          Prácticas
+        </a>
+
         <a href="progreso.html">Mi progreso</a>
       </nav>
-      <div class="header-botones">
-      </div>
+
+      <div class="acciones-h"></div>
+
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <h1>Prácticas</h1>
-      <p style="color: var(--texto2); margin-bottom: 20px;">
-        Tests y ejercicios para comprobar si entiendes las reglas de XML.
+  <main class="contenido">
+
+    <!-- Presentación -->
+    <section class="hero" aria-labelledby="titulo-practicas">
+      <p class="mini">Pon a prueba lo aprendido</p>
+
+      <h1 id="titulo-practicas">Prácticas de XML</h1>
+
+      <p>
+        Responde los tests y encuentra los errores.
+        Comprueba cada respuesta y repasa lo que necesites.
       </p>
 
-      <!-- Test 1 -->
-      <div class="ejercicio">
-        <span class="badge">Test</span>
-        <h3 style="margin: 8px 0;">1. ¿Qué es un documento bien formado?</h3>
-        <label><input type="radio" name="t1" value="a"> Uno que tiene DTD o XSD</label>
-        <label><input type="radio" name="t1" value="b"> Uno que cumple las reglas básicas de sintaxis XML</label>
-        <label><input type="radio" name="t1" value="c"> Uno escrito solo en minúsculas</label>
-        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('t1','b', this)">Comprobar</button>
-        <p class="msg"></p>
-      </div>
+      <div class="botones">
+        <a href="#ejercicios" class="btn btn-blanco">
+          Empezar prácticas
+        </a>
 
-      <!-- Test 2 -->
-      <div class="ejercicio">
-        <span class="badge">Test</span>
-        <h3 style="margin: 8px 0;">2. Los atributos en XML deben ir…</h3>
-        <label><input type="radio" name="t2" value="a"> Sin comillas</label>
-        <label><input type="radio" name="t2" value="b"> Entre comillas</label>
-        <label><input type="radio" name="t2" value="c"> Solo si son números</label>
-        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('t2','b', this)">Comprobar</button>
-        <p class="msg"></p>
+        <a href="temario.html" class="btn btn-borde-b">
+          Repasar temario
+        </a>
       </div>
+    </section>
 
-      <!-- Encuentra el error 1 -->
-      <div class="ejercicio">
-        <span class="badge">Error</span>
-        <h3 style="margin: 8px 0;">3. ¿Qué falla en este XML?</h3>
-        <div class="codigo">&lt;libro&gt;
+    <!-- Ejercicios -->
+    <div class="lista practicas-lista" id="ejercicios">
+
+      <!-- Ejercicio 1 -->
+      <section class="bloque ejercicio" aria-labelledby="pregunta-1">
+        <span class="pill">Test · 1 de 5</span>
+
+        <h2 id="pregunta-1">
+          ¿Qué es un documento bien formado?
+        </h2>
+
+        <div role="group" aria-labelledby="pregunta-1">
+          <label class="op">
+            <input type="radio" name="t1" value="a">
+            <span>Uno que tiene DTD o XSD</span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="t1" value="b">
+            <span>
+              Uno que cumple las reglas básicas de sintaxis XML
+            </span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="t1" value="c">
+            <span>Uno escrito solo en minúsculas</span>
+          </label>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-verde"
+          onclick="corregir('t1', 'b', this)"
+        >
+          Comprobar
+        </button>
+
+        <p class="msg" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Ejercicio 2 -->
+      <section class="bloque ejercicio" aria-labelledby="pregunta-2">
+        <span class="pill">Test · 2 de 5</span>
+
+        <h2 id="pregunta-2">
+          Los atributos en XML deben ir…
+        </h2>
+
+        <div role="group" aria-labelledby="pregunta-2">
+          <label class="op">
+            <input type="radio" name="t2" value="a">
+            <span>Sin comillas</span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="t2" value="b">
+            <span>Entre comillas</span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="t2" value="c">
+            <span>Solo si son números</span>
+          </label>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-verde"
+          onclick="corregir('t2', 'b', this)"
+        >
+          Comprobar
+        </button>
+
+        <p class="msg" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Ejercicio 3 -->
+      <section class="bloque ejercicio" aria-labelledby="pregunta-3">
+        <span class="pill">Encuentra el error · 3 de 5</span>
+
+        <h2 id="pregunta-3">
+          ¿Qué falla en este XML?
+        </h2>
+
+        <pre class="codigo"><code>&lt;libro&gt;
   &lt;titulo&gt;XML fácil
   &lt;autor&gt;Ana&lt;/autor&gt;
-&lt;/libro&gt;</div>
-        <label><input type="radio" name="e1" value="a"> Falta la declaración XML</label>
-        <label><input type="radio" name="e1" value="b"> La etiqueta titulo no está cerrada</label>
-        <label><input type="radio" name="e1" value="c"> Hay dos raíces</label>
-        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('e1','b', this)">Comprobar</button>
-        <p class="msg"></p>
-      </div>
+&lt;/libro&gt;</code></pre>
 
-      <!-- Encuentra el error 2 -->
-      <div class="ejercicio">
-        <span class="badge">Error</span>
-        <h3 style="margin: 8px 0;">4. ¿Qué falla aquí?</h3>
-        <div class="codigo">&lt;persona&gt;
+        <div role="group" aria-labelledby="pregunta-3">
+          <label class="op">
+            <input type="radio" name="e1" value="a">
+            <span>Falta la declaración XML</span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="e1" value="b">
+            <span>La etiqueta titulo no está cerrada</span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="e1" value="c">
+            <span>Hay dos raíces</span>
+          </label>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-verde"
+          onclick="corregir('e1', 'b', this)"
+        >
+          Comprobar
+        </button>
+
+        <p class="msg" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Ejercicio 4 -->
+      <section class="bloque ejercicio" aria-labelledby="pregunta-4">
+        <span class="pill">Encuentra el error · 4 de 5</span>
+
+        <h2 id="pregunta-4">
+          ¿Qué falla aquí?
+        </h2>
+
+        <pre class="codigo"><code>&lt;persona&gt;
   &lt;nombre&gt;Luis&lt;/nombre&gt;
 &lt;/persona&gt;
 &lt;persona&gt;
   &lt;nombre&gt;María&lt;/nombre&gt;
-&lt;/persona&gt;</div>
-        <label><input type="radio" name="e2" value="a"> Los nombres no coinciden</label>
-        <label><input type="radio" name="e2" value="b"> Hay más de una raíz</label>
-        <label><input type="radio" name="e2" value="c"> Faltan atributos</label>
-        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('e2','b', this)">Comprobar</button>
-        <p class="msg"></p>
-      </div>
+&lt;/persona&gt;</code></pre>
 
-      <!-- Test 3 -->
-      <div class="ejercicio">
-        <span class="badge">Test</span>
-        <h3 style="margin: 8px 0;">5. Un documento válido…</h3>
-        <label><input type="radio" name="t3" value="a"> No tiene por qué estar bien formado</label>
-        <label><input type="radio" name="t3" value="b"> Siempre está bien formado</label>
-        <label><input type="radio" name="t3" value="c"> Solo usa etiquetas en inglés</label>
-        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('t3','b', this)">Comprobar</button>
-        <p class="msg"></p>
-      </div>
+        <div role="group" aria-labelledby="pregunta-4">
+          <label class="op">
+            <input type="radio" name="e2" value="a">
+            <span>Los nombres no coinciden</span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="e2" value="b">
+            <span>Hay más de una raíz</span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="e2" value="c">
+            <span>Faltan atributos</span>
+          </label>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-verde"
+          onclick="corregir('e2', 'b', this)"
+        >
+          Comprobar
+        </button>
+
+        <p class="msg" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Ejercicio 5 -->
+      <section class="bloque ejercicio" aria-labelledby="pregunta-5">
+        <span class="pill">Test · 5 de 5</span>
+
+        <h2 id="pregunta-5">
+          Un documento válido…
+        </h2>
+
+        <div role="group" aria-labelledby="pregunta-5">
+          <label class="op">
+            <input type="radio" name="t3" value="a">
+            <span>No tiene por qué estar bien formado</span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="t3" value="b">
+            <span>Siempre está bien formado</span>
+          </label>
+
+          <label class="op">
+            <input type="radio" name="t3" value="c">
+            <span>Solo usa etiquetas en inglés</span>
+          </label>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-verde"
+          onclick="corregir('t3', 'b', this)"
+        >
+          Comprobar
+        </button>
+
+        <p class="msg" role="status" aria-live="polite"></p>
+      </section>
 
     </div>
+
+    <!-- Accesos a otras secciones -->
+    <section class="caja-suave" aria-labelledby="titulo-seguir">
+      <h2 id="titulo-seguir">Sigue practicando</h2>
+
+      <p class="muted">
+        Repasa las unidades o prueba tus propios ejemplos
+        en el laboratorio.
+      </p>
+
+      <div class="botones">
+        <a href="temario.html" class="btn btn-verde">
+          Repasar temario
+        </a>
+
+        <a href="laboratorio.html" class="btn btn-linea">
+          Abrir laboratorio
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <div class="footer-content">
-      <p>Aula XML - Hugo Fernández Riquelme - 2026</p>
+    <div class="pie">
+      <p>Aula XML · Hugo Fernández Riquelme · 2026</p>
       <p>Lenguajes de marcas</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+
   <script>
     function corregir(name, bien, btn) {
-      var elegida = document.querySelector('input[name="' + name + '"]:checked');
-      var msg = btn.parentElement.querySelector(".msg");
+      var ejercicio = btn.closest(".ejercicio");
+
+      var elegida = ejercicio.querySelector(
+        'input[name="' + name + '"]:checked'
+      );
+
+      var msg = ejercicio.querySelector(".msg");
+
+      msg.classList.remove("ok", "mal", "aviso");
+
       if (!elegida) {
-        msg.textContent = "Elige una opción.";
-        msg.style.color = "#d97706";
+        msg.textContent = "Elige una opción antes de comprobar.";
+        msg.classList.add("aviso");
         return;
       }
+
       if (elegida.value === bien) {
-        msg.textContent = "Correcto.";
-        msg.style.color = "#059669";
+        msg.textContent = "Correcto. ¡Bien hecho!";
+        msg.classList.add("ok");
       } else {
-        msg.textContent = "Incorrecto. Revisa el temario.";
-        msg.style.color = "#dc2626";
+        msg.textContent =
+          "Incorrecto. Revisa el temario y vuelve a intentarlo.";
+
+        msg.classList.add("mal");
       }
     }
   </script>
+
 </body>
 </html>

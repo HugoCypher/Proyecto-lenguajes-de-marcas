@@ -231,3 +231,83 @@ button:focus-visible {
   outline: 2px solid var(--verde);
   outline-offset: 2px;
 }
+/* ============================================
+   Prácticas
+   ============================================ */
+
+.practicas-lista {
+  margin-top: 32px;
+  scroll-margin-top: 90px;
+}
+
+.practicas-lista .ejercicio {
+  min-width: 0;
+}
+
+.practicas-lista .pill {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.practicas-lista h2 {
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+}
+
+.practicas-lista .codigo {
+  margin-bottom: 16px;
+}
+
+.practicas-lista .codigo code {
+  font: inherit;
+}
+
+.practicas-lista label.op {
+  align-items: flex-start;
+  gap: 10px;
+  margin: 6px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  color: var(--texto2);
+  font-size: 1rem;
+}
+
+.practicas-lista label.op:hover {
+  background: var(--suave);
+}
+
+.practicas-lista label.op:has(input:checked) {
+  border-color: var(--verde);
+  background: var(--suave);
+  color: var(--texto);
+}
+
+.practicas-lista input[type="radio"] {
+  flex-shrink: 0;
+  margin-top: 5px;
+  accent-color: var(--verde);
+}
+
+.practicas-lista input[type="radio"]:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 3px;
+}
+
+.practicas-lista .ejercicio > .btn {
+  margin-top: 16px;
+}
+
+.practicas-lista .msg {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.practicas-lista .msg:empty {
+  display: none;
+}
+
+.practicas-lista .aviso {
+  color: var(--texto2);
+  font-weight: 600;
+}
