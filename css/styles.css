@@ -843,3 +843,58 @@ input:focus-visible {
 .temario-unidades .bloque > .btn {
   margin-top: 16px;
 }
+/* Detalle y reinicio del progreso */
+
+.progreso-detalle,
+.progreso-reinicio {
+  margin-top: 32px;
+}
+
+.progreso-detalle h2,
+.progreso-reinicio h2 {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+.progreso-detalle .detalle {
+  margin-top: 16px;
+}
+
+.progreso-detalle .detalle li {
+  align-items: flex-start;
+}
+
+.progreso-detalle .detalle li span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.progreso-detalle .detalle li span:last-child {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.progreso-reinicio .btn {
+  margin-top: 16px;
+}
+
+.btn-peligro {
+  border-color: var(--mal);
+  background: transparent;
+  color: var(--mal);
+}
+
+.btn-peligro:hover {
+  background: var(--suave);
+}
+
+@media (max-width: 480px) {
+  .progreso-detalle .detalle li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .progreso-detalle .detalle li span:last-child {
+    text-align: left;
+  }
+}

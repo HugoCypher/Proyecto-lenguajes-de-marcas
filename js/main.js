@@ -153,7 +153,18 @@ function prepararProgreso() {
     html += "<li><span>" + NOMBRES[pid] + "</span><span class='" + cls + "'>" + texto + "</span></li>";
   }
   lista.innerHTML = html;
-  document.getElementById("btnBorrar").onclick = function () { guardar(vacio()); location.reload(); };
+document.getElementById("btnBorrar").onclick = function () {
+  var confirmar = window.confirm(
+    "¿Quieres borrar todo tu progreso? Esta acción no se puede deshacer."
+  );
+
+  if (!confirmar) {
+    return;
+  }
+
+  guardar(vacio());
+  location.reload();
+};
 }
 function tema() {
   var oscuro = localStorage.getItem("aula-tema") === "dark";

@@ -34,19 +34,19 @@
         </a>
       </nav>
 
-<div class="acciones-h">
-  <span class="pct" id="pct">0%</span>
+      <div class="acciones-h">
+        <span class="pct" id="pct">0%</span>
 
-  <button
-    type="button"
-    class="icono"
-    id="cambiarTema"
-    aria-label="Cambiar tema claro u oscuro"
-    title="Cambiar tema"
-  >
-    ☾
-  </button>
-</div>
+        <button
+          type="button"
+          class="icono"
+          id="cambiarTema"
+          aria-label="Cambiar tema claro u oscuro"
+          title="Cambiar tema"
+        >
+          ☾
+        </button>
+      </div>
 
     </div>
   </header>
@@ -60,13 +60,13 @@
       <h1 id="titulo-progreso">Mi progreso</h1>
 
       <p>
-        Aquí podrás consultar las lecciones completadas,
-        los resultados de las prácticas y tus próximos repasos.
+        Consulta las lecciones vistas, los resultados
+        de tus prácticas y los análisis del laboratorio.
       </p>
 
       <div class="botones">
         <a href="temario.html" class="btn btn-blanco">
-          Ir al temario
+          Continuar temario
         </a>
 
         <a href="practicas.html" class="btn btn-borde-b">
@@ -80,28 +80,22 @@
 
       <div class="fila">
         <h2 id="titulo-avance">Avance general</h2>
-        <span class="pill">0%</span>
+        <span class="pill" id="pill">0%</span>
       </div>
 
-      <div
-        class="track"
-        role="progressbar"
-        aria-label="Avance general"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        aria-valuenow="0"
-      >
-        <div class="fill"></div>
+      <div class="track">
+        <div class="fill" id="barraFill"></div>
       </div>
 
       <p class="nota">
-        El seguimiento del progreso está pendiente de implementar.
-        Los valores mostrados son provisionales.
+        El porcentaje cuenta las cinco lecciones vistas y las
+        cinco prácticas intentadas, aunque la respuesta sea incorrecta.
+        Los análisis del laboratorio se registran por separado.
       </p>
 
     </section>
 
-    <!-- Resumen -->
+    <!-- Estadísticas -->
     <section class="progreso-resumen" aria-labelledby="titulo-resumen">
       <h2 id="titulo-resumen">Resumen de actividad</h2>
 
@@ -110,43 +104,57 @@
         <div class="card">
           <span class="pill">Temario</span>
 
-          <h3>Lecciones</h3>
+          <h3>Lecciones vistas</h3>
 
-          <strong>—</strong>
+          <strong id="nLec">0 / 5</strong>
 
           <p>
-            El registro de lecciones completadas se añadirá
-            en la Fase 4.
+            Unidades que has marcado como vistas.
           </p>
         </div>
 
         <div class="card">
           <span class="pill">Prácticas</span>
 
-          <h3>Ejercicios</h3>
+          <h3>Prácticas correctas</h3>
 
-          <strong>—</strong>
+          <strong id="nPrac">0 / 5</strong>
 
           <p>
-            El guardado de intentos y resultados se añadirá
-            en la Fase 4.
+            Ejercicios cuya última respuesta comprobada
+            fue correcta.
           </p>
         </div>
 
         <div class="card">
-          <span class="pill">Repaso</span>
+          <span class="pill">Laboratorio</span>
 
-          <h3>A repasar</h3>
+          <h3>Análisis sin errores detectados</h3>
 
-          <strong>—</strong>
+          <strong id="nLab">0 / 0</strong>
 
           <p>
-            Las recomendaciones estarán disponibles
-            cuando se registren los resultados.
+            Análisis sin errores detectados por el comprobador,
+            respecto al total de análisis realizados.
           </p>
         </div>
 
       </div>
+    </section>
+
+    <!-- Detalle de lecciones y prácticas -->
+    <section
+      class="bloque progreso-detalle"
+      aria-labelledby="titulo-detalle"
+    >
+      <h2 id="titulo-detalle">Detalle de tu aprendizaje</h2>
+
+      <p class="muted">
+        Revisa las unidades pendientes y el último
+        resultado de cada práctica.
+      </p>
+
+      <ul class="detalle" id="detalle"></ul>
     </section>
 
     <!-- Accesos -->
@@ -154,8 +162,8 @@
       <h2 id="titulo-continuar">Continúa aprendiendo</h2>
 
       <p class="muted">
-        Repasa los conceptos, resuelve ejercicios o prueba
-        tus propios ejemplos de XML.
+        Repasa los conceptos, vuelve a intentar los ejercicios
+        o prueba nuevos ejemplos de XML.
       </p>
 
       <div class="botones">
@@ -171,6 +179,27 @@
           Abrir laboratorio
         </a>
       </div>
+    </section>
+
+    <!-- Borrado del progreso -->
+    <section
+      class="bloque progreso-reinicio"
+      aria-labelledby="titulo-reinicio"
+    >
+      <h2 id="titulo-reinicio">Reiniciar progreso</h2>
+
+      <p class="muted">
+        Elimina las lecciones vistas, los resultados de prácticas
+        y los registros del laboratorio guardados en este navegador.
+      </p>
+
+      <button
+        type="button"
+        class="btn btn-peligro"
+        id="btnBorrar"
+      >
+        Borrar mi progreso
+      </button>
     </section>
 
   </main>
