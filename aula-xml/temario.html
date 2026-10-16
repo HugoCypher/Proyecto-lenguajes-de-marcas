@@ -7,351 +7,19 @@
   <title>Aula XML - Temario</title>
 
   <link rel="stylesheet" href="css/styles.css">
-
-  <style>
-    /* Estilos de esta página */
-    body.pagina-temario {
-      --temario-fondo: #f3faf8;
-      --temario-blanco: #ffffff;
-      --temario-texto: #163b3b;
-      --temario-texto-secundario: #4c6c6c;
-      --temario-principal: #117975;
-      --temario-borde: #c5e3df;
-      --temario-suave: #e5f4f1;
-
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: var(--temario-fondo);
-      color: var(--temario-texto);
-      font-family: "Segoe UI", Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    .pagina-temario,
-    .pagina-temario * {
-      box-sizing: border-box;
-    }
-
-    /* Cabecera */
-    .pagina-temario header {
-      background: var(--temario-blanco);
-      border-bottom: 1px solid var(--temario-borde);
-    }
-
-    .pagina-temario .header-content {
-      width: min(1240px, calc(100% - 40px));
-      min-height: 80px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .pagina-temario .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--temario-texto);
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .pagina-temario .logo span:first-child {
-      display: grid;
-      place-items: center;
-      width: 50px;
-      height: 40px;
-      border-radius: 8px;
-      background: var(--temario-principal);
-      color: white;
-      font-family: Consolas, monospace;
-      font-size: 14px;
-    }
-
-    .pagina-temario #menu {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .pagina-temario #menu a {
-      padding: 12px 16px;
-      border-radius: 8px;
-      color: var(--temario-texto-secundario);
-      text-decoration: none;
-      transition: background-color 0.2s, color 0.2s;
-    }
-
-    .pagina-temario #menu a:hover,
-    .pagina-temario #menu a.activo {
-      background: var(--temario-suave);
-      color: var(--temario-principal);
-    }
-
-    .pagina-temario #menu a.activo {
-      font-weight: 600;
-    }
-
-    /* Contenido principal */
-    .pagina-temario main {
-      flex: 1;
-      width: 100%;
-      padding: 40px 0;
-    }
-
-    .pagina-temario .container {
-      width: min(1240px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 0;
-      max-width: 1240px;
-    }
-
-    /* Presentación */
-    .pagina-temario .temario-presentacion {
-      padding: 48px 32px;
-      margin-bottom: 32px;
-      border-radius: 20px;
-      background: linear-gradient(115deg, #117975, #10768c);
-      color: white;
-      text-align: center;
-    }
-
-    .pagina-temario .temario-etiqueta {
-      margin: 0 0 12px;
-      color: #d1eceb;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-
-    .pagina-temario .temario-presentacion h1 {
-      margin: 0 0 12px;
-      color: white;
-      font-size: clamp(28px, 4vw, 38px);
-      line-height: 1.2;
-    }
-
-    .pagina-temario .temario-descripcion {
-      max-width: 650px;
-      margin: 0 auto;
-      color: #e0f0f0;
-      font-size: 18px;
-    }
-
-    /* Unidades */
-    .pagina-temario .unidades {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      align-items: start;
-    }
-
-    .pagina-temario .bloque {
-      min-width: 0;
-      padding: 26px;
-      border: 1px solid var(--temario-borde);
-      border-radius: 16px;
-      background: var(--temario-blanco);
-      box-shadow: 0 2px 5px rgb(18 86 81 / 4%);
-    }
-
-    .pagina-temario .bloque:last-child {
-      grid-column: 1 / -1;
-    }
-
-    .pagina-temario .badge {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 5px 12px;
-      border-radius: 20px;
-      background: var(--temario-suave);
-      color: var(--temario-principal);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .pagina-temario .bloque h2 {
-      margin: 0 0 14px;
-      color: var(--temario-texto);
-      font-size: 22px;
-      line-height: 1.3;
-    }
-
-    .pagina-temario .bloque p {
-      margin: 0 0 12px;
-      color: var(--temario-texto-secundario);
-    }
-
-    .pagina-temario .bloque p:last-child {
-      margin-bottom: 0;
-    }
-
-    .pagina-temario .bloque strong {
-      color: var(--temario-texto);
-    }
-
-    .pagina-temario .lista-reglas {
-      margin: 12px 0 0;
-      padding-left: 22px;
-      color: var(--temario-texto-secundario);
-    }
-
-    .pagina-temario .lista-reglas li {
-      margin-bottom: 8px;
-    }
-
-    /* Ejemplos de código */
-    .pagina-temario .codigo {
-      max-width: 100%;
-      margin: 14px 0;
-      padding: 16px;
-      overflow-x: auto;
-      border: 1px solid var(--temario-borde);
-      border-radius: 10px;
-      background: #f1f7f6;
-      color: #185451;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 14px;
-      line-height: 1.7;
-      white-space: pre;
-    }
-
-    .pagina-temario .codigo code {
-      font: inherit;
-      color: inherit;
-      background: transparent;
-      padding: 0;
-    }
-
-    /* Acceso al laboratorio */
-    .pagina-temario .temario-siguiente {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      margin-top: 32px;
-      padding: 26px;
-      border: 1px solid var(--temario-borde);
-      border-radius: 16px;
-      background: var(--temario-suave);
-    }
-
-    .pagina-temario .temario-siguiente h2 {
-      margin: 0 0 6px;
-      font-size: 20px;
-    }
-
-    .pagina-temario .temario-siguiente p {
-      margin: 0;
-      color: var(--temario-texto-secundario);
-    }
-
-    .pagina-temario .boton-laboratorio {
-      display: inline-block;
-      flex-shrink: 0;
-      padding: 13px 22px;
-      border: 1px solid var(--temario-principal);
-      border-radius: 8px;
-      background: var(--temario-principal);
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 700;
-      transition: background-color 0.2s;
-    }
-
-    .pagina-temario .boton-laboratorio:hover {
-      background: #0d625f;
-    }
-
-    .pagina-temario a:focus-visible {
-      outline: 3px solid #258fa1;
-      outline-offset: 4px;
-    }
-
-    /* Pie de página */
-    .pagina-temario footer {
-      padding: 24px 0;
-      border-top: 1px solid var(--temario-borde);
-      background: var(--temario-blanco);
-    }
-
-    .pagina-temario .footer-content {
-      width: min(1240px, calc(100% - 40px));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      color: #739492;
-      font-size: 14px;
-    }
-
-    .pagina-temario .footer-content p {
-      margin: 0;
-    }
-
-    /* Móviles y tablets */
-    @media (max-width: 900px) {
-      .pagina-temario .header-content {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 18px 0;
-        gap: 14px;
-      }
-
-      .pagina-temario #menu {
-        justify-content: center;
-      }
-
-      .pagina-temario #menu a {
-        padding: 9px 12px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .pagina-temario .unidades {
-        grid-template-columns: 1fr;
-      }
-
-      .pagina-temario .temario-presentacion {
-        padding: 36px 20px;
-      }
-
-      .pagina-temario .bloque {
-        padding: 22px;
-      }
-
-      .pagina-temario .temario-siguiente {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .pagina-temario .footer-content {
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
-      }
-    }
-  </style>
 </head>
 
-<body class="pagina-temario">
+<body>
 
   <header>
-    <div class="header-content">
+    <div class="barra">
+
       <a href="index.html" class="logo">
-        <span>XML</span>
+        <b>XML</b>
         <span>Aula XML</span>
       </a>
 
-      <nav id="menu" aria-label="Navegación principal">
+      <nav class="menu" id="menu" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <a href="temario.html" class="activo" aria-current="page">
           Temario
@@ -361,153 +29,163 @@
         <a href="progreso.html">Mi progreso</a>
       </nav>
 
-      <div class="header-botones"></div>
+      <div class="acciones-h"></div>
+
     </div>
   </header>
 
-  <main>
-    <div class="container">
+  <main class="contenido">
 
-      <section
-        class="temario-presentacion"
-        aria-labelledby="titulo-temario"
-      >
-        <p class="temario-etiqueta">Aprende paso a paso</p>
-        <h1 id="titulo-temario">Temario de XML</h1>
-        <p class="temario-descripcion">
-          Explora las unidades, entiende las reglas y aprende
-          con ejemplos prácticos.
+    <!-- Presentación -->
+    <section class="hero" aria-labelledby="titulo-temario">
+      <p class="mini">Aprende paso a paso</p>
+
+      <h1 id="titulo-temario">Temario de XML</h1>
+
+      <p>
+        Explora las unidades, conoce las reglas y aprende
+        con ejemplos prácticos.
+      </p>
+
+      <div class="botones">
+        <a href="#unidades" class="btn btn-blanco">
+          Ver unidades
+        </a>
+
+        <a href="laboratorio.html" class="btn btn-borde-b">
+          Probar laboratorio
+        </a>
+      </div>
+    </section>
+
+    <!-- Unidades -->
+    <div class="lista temario-unidades" id="unidades">
+
+      <section class="bloque" aria-labelledby="unidad-1">
+        <span class="pill">Unidad 1</span>
+
+        <h2 id="unidad-1">Conceptos generales</h2>
+
+        <p>
+          Los lenguajes de marcas sirven para estructurar información.
+          No programan, solo etiquetan datos.
         </p>
-      </section>
 
-      <div class="unidades">
+        <p>
+          XML permite crear tus propias etiquetas.
+          Se usa para intercambiar datos entre programas.
+        </p>
 
-        <!-- Unidad 1 -->
-        <section class="bloque" aria-labelledby="unidad-1">
-          <span class="badge">Unidad 1</span>
-          <h2 id="unidad-1">Conceptos generales</h2>
+        <p><strong>Ejemplo:</strong></p>
 
-          <p>
-            Los lenguajes de marcas sirven para estructurar
-            información. No programan, solo etiquetan datos.
-          </p>
-
-          <p>
-            XML permite crear tus propias etiquetas. Se usa para
-            intercambiar datos entre programas.
-          </p>
-
-          <p><strong>Ejemplo:</strong></p>
-
-          <pre class="codigo"><code>&lt;persona&gt;
+        <pre class="codigo"><code>&lt;persona&gt;
   &lt;nombre&gt;Laura&lt;/nombre&gt;
   &lt;edad&gt;22&lt;/edad&gt;
 &lt;/persona&gt;</code></pre>
 
-          <p><strong>Árbol:</strong> persona → nombre, edad</p>
-        </section>
+        <p class="nota">
+          Árbol: persona → nombre, edad.
+        </p>
+      </section>
 
-        <!-- Unidad 2 -->
-        <section class="bloque" aria-labelledby="unidad-2">
-          <span class="badge">Unidad 2</span>
-          <h2 id="unidad-2">Estructura y sintaxis</h2>
+      <section class="bloque" aria-labelledby="unidad-2">
+        <span class="pill">Unidad 2</span>
 
-          <p>Un XML suele empezar con la declaración:</p>
+        <h2 id="unidad-2">Estructura y sintaxis</h2>
 
-          <pre class="codigo"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code></pre>
+        <p>Un XML suele empezar con la declaración:</p>
 
-          <p>
-            Los elementos tienen etiqueta de apertura y de cierre.
-            Los atributos van entre comillas:
-          </p>
+        <pre class="codigo"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code></pre>
 
-          <pre class="codigo"><code>&lt;libro id="1" idioma="es"&gt;
+        <p>
+          Los elementos tienen etiqueta de apertura y de cierre.
+          Los atributos van entre comillas:
+        </p>
+
+        <pre class="codigo"><code>&lt;libro id="1" idioma="es"&gt;
   &lt;titulo&gt;Aprendiendo XML&lt;/titulo&gt;
 &lt;/libro&gt;</code></pre>
-        </section>
+      </section>
 
-        <!-- Unidad 3 -->
-        <section class="bloque" aria-labelledby="unidad-3">
-          <span class="badge">Unidad 3</span>
-          <h2 id="unidad-3">Documentos bien formados</h2>
+      <section class="bloque" aria-labelledby="unidad-3">
+        <span class="pill">Unidad 3</span>
 
-          <p>
-            Para que un XML esté bien formado tiene que cumplir:
-          </p>
+        <h2 id="unidad-3">Documentos bien formados</h2>
 
-          <ul class="lista-reglas">
-            <li>Una sola raíz.</li>
-            <li>Etiquetas abiertas y cerradas.</li>
-            <li>Nombres iguales, también en mayúsculas.</li>
-            <li>Anidación correcta.</li>
-            <li>Atributos entre comillas.</li>
-          </ul>
-        </section>
+        <p>
+          Para que un XML esté bien formado tiene que cumplir:
+        </p>
 
-        <!-- Unidad 4 -->
-        <section class="bloque" aria-labelledby="unidad-4">
-          <span class="badge">Unidad 4</span>
-          <h2 id="unidad-4">Bien formado vs. válido</h2>
+        <ul class="temario-reglas">
+          <li>Una sola raíz.</li>
+          <li>Etiquetas abiertas y cerradas.</li>
+          <li>Nombres iguales, también en mayúsculas.</li>
+          <li>Anidación correcta.</li>
+          <li>Atributos entre comillas.</li>
+        </ul>
+      </section>
 
-          <p>
-            <strong>Bien formado:</strong>
-            cumple las reglas de sintaxis, como las etiquetas
-            y la anidación.
-          </p>
+      <section class="bloque" aria-labelledby="unidad-4">
+        <span class="pill">Unidad 4</span>
 
-          <p>
-            <strong>Válido:</strong>
-            además sigue un DTD o XSD que define una estructura
-            concreta.
-          </p>
+        <h2 id="unidad-4">Bien formado vs. válido</h2>
 
-          <p>
-            Si no está bien formado, no puede ser válido.
-          </p>
-        </section>
+        <p>
+          <strong>Bien formado:</strong>
+          cumple las reglas de sintaxis, como las etiquetas
+          y la anidación.
+        </p>
 
-        <!-- Unidad 5 -->
-        <section class="bloque" aria-labelledby="unidad-5">
-          <span class="badge">Unidad 5</span>
-          <h2 id="unidad-5">Namespaces</h2>
+        <p>
+          <strong>Válido:</strong>
+          además sigue un DTD o XSD que define una estructura concreta.
+        </p>
 
-          <p>
-            Los namespaces evitan que dos etiquetas con el mismo
-            nombre se confundan cuando se mezclan vocabularios
-            distintos.
-          </p>
+        <p>Si no está bien formado, no puede ser válido.</p>
+      </section>
 
-          <pre class="codigo"><code>&lt;root xmlns:lib="http://ejemplo.com/libros"&gt;
+      <section class="bloque" aria-labelledby="unidad-5">
+        <span class="pill">Unidad 5</span>
+
+        <h2 id="unidad-5">Namespaces</h2>
+
+        <p>
+          Los namespaces evitan que dos etiquetas con el mismo
+          nombre se confundan cuando se mezclan vocabularios distintos.
+        </p>
+
+        <pre class="codigo"><code>&lt;root xmlns:lib="http://ejemplo.com/libros"&gt;
   &lt;lib:libro&gt;
     &lt;lib:titulo&gt;XML práctico&lt;/lib:titulo&gt;
   &lt;/lib:libro&gt;
 &lt;/root&gt;</code></pre>
-        </section>
-
-      </div>
-
-      <section
-        class="temario-siguiente"
-        aria-labelledby="titulo-practicar"
-      >
-        <div>
-          <h2 id="titulo-practicar">Pon en práctica lo aprendido</h2>
-          <p>
-            Prueba tus ejemplos en el laboratorio y comprueba
-            si están bien formados.
-          </p>
-        </div>
-
-        <a href="laboratorio.html" class="boton-laboratorio">
-          Probar laboratorio
-        </a>
       </section>
 
     </div>
+
+    <!-- Acceso a prácticas -->
+    <section class="caja-suave" aria-labelledby="titulo-practicar">
+      <h2 id="titulo-practicar">¿Preparado para practicar?</h2>
+
+      <p class="muted">
+        Repasa lo aprendido con los tests y ejercicios.
+      </p>
+
+      <div class="botones">
+        <a href="practicas.html" class="btn btn-verde">
+          Ir a prácticas
+        </a>
+
+        <a href="laboratorio.html" class="btn btn-linea">
+          Abrir laboratorio
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <div class="footer-content">
+    <div class="pie">
       <p>Aula XML · Hugo Fernández Riquelme · 2026</p>
       <p>Lenguajes de marcas</p>
     </div>

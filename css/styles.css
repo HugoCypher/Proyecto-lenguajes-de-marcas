@@ -98,3 +98,92 @@ footer { border-top: 1px solid var(--borde); background: var(--blanco); }
   .hamburguesa { display: grid; place-items: center; }
   .grid, .lab, .stats { grid-template-columns: 1fr; }
 }
+/* ============================================
+   Ajustes compartidos de estructura
+   ============================================ */
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main.contenido {
+  width: 100%;
+  flex: 1;
+}
+
+/* ============================================
+   Temario
+   ============================================ */
+
+.temario-unidades {
+  margin-top: 32px;
+  scroll-margin-top: 90px;
+}
+
+.temario-unidades .bloque {
+  min-width: 0;
+}
+
+.temario-unidades .pill {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.temario-unidades h2 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.temario-unidades p {
+  margin-top: 10px;
+  color: var(--texto2);
+}
+
+.temario-unidades .codigo {
+  margin-bottom: 12px;
+}
+
+.temario-unidades .codigo code {
+  font: inherit;
+}
+
+.temario-reglas {
+  margin-top: 12px;
+  padding-left: 22px;
+  color: var(--texto2);
+}
+
+.temario-reglas li {
+  margin-bottom: 6px;
+}
+
+/* Foco al navegar con teclado */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--verde);
+  outline-offset: 4px;
+}
+
+/* Menú visible en móvil mientras no haya menú desplegable */
+@media (max-width: 800px) {
+  .barra:has(#menu) {
+    height: auto;
+    min-height: 64px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  nav.menu#menu {
+    display: flex;
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav.menu#menu a {
+    padding: 8px 10px;
+  }
+}
