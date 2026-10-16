@@ -40,7 +40,7 @@ aula-xml/
 - [x] Fase 1 · Diseño → Prototipo navegable
 - [x] Fase 2 · Contenido → Temario con unidades y ejemplos en `temario.html`
 - [x] Fase 3 · Práctica → Laboratorio XML y ejercicios
-- [ ] Fase 4 · Datos → Guardar progreso
+- [x] Fase 4 · Datos → Guardar progreso
 - [ ] Fase 5 · IA y n8n
 - [ ] Fase 6 · Evaluación y demo
 
@@ -50,6 +50,24 @@ En el temario los ejemplos de código usan & lt; y & gt; en lugar de < y >.
 
 Lo he hecho así para que el navegador muestre las etiquetas como texto y no las interprete como HTML real. Si se pusieran los < > normales,
 la pagína se rompería o no se verían bien los ejemplos. 
+
+## Fase 4 · Datos y progreso
+
+- Guardado del progreso en localStorage.
+- Registro de las lecciones marcadas como vistas.
+- Guardado del último resultado de cada práctica.
+- Registro del total de análisis del laboratorio y de los análisis
+  sin errores detectados por el comprobador.
+- Resumen del avance en Inicio y Mi progreso.
+- Detalle del estado de las lecciones y prácticas.
+- Botón para reiniciar el progreso con confirmación.
+
+El porcentaje de avance cuenta las cinco lecciones vistas y las
+cinco prácticas intentadas, aunque la respuesta sea incorrecta.
+Los análisis del laboratorio se contabilizan por separado.
+
+El progreso se guarda en el navegador utilizado; no se sincroniza
+entre dispositivos ni con la cuenta de GitHub.
 
 Alumno: Hugo Fernández Riquelme  
 Fecha: octubre 2026
