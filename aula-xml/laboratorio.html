@@ -103,16 +103,6 @@
         return errores;
       }
 
-      // Quitar declaración y comentarios
-      t = t.replace(/<\?xml[^?]*\?>/gi, "");
-      t = t.replace(/<!--[\s\S]*?-->/g, "");
-      t = t.trim();
-
-      // Atributos sin comillas (simple)
-      if (/\s[a-zA-Z_][\w:.-]*=[^"'\s>]+/.test(t)) {
-        errores.push("Hay atributos sin comillas.");
-      }
-
       // Buscar todas las etiquetas
       var pila = [];
       var raices = 0;
