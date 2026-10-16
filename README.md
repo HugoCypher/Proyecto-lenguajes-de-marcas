@@ -39,7 +39,7 @@ aula-xml/
 
 - [x] Fase 1 · Diseño → Prototipo navegable
 - [x] Fase 2 · Contenido → Temario con unidades y ejemplos en `temario.html`
-- [ ] Fase 3 · Práctica → Laboratorio XML y ejercicios
+- [x] Fase 3 · Práctica → Laboratorio XML y ejercicios
 - [ ] Fase 4 · Datos → Guardar progreso
 - [ ] Fase 5 · IA y n8n
 - [ ] Fase 6 · Evaluación y demo
