@@ -5,15 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aula XML - Prácticas</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .ejercicio {
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .codigo {
+      background: #f1f5f9;
+      border: 1px solid var(--borde);
+      padding: 12px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      margin: 10px 0;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    [data-theme="dark"] .codigo { background: #0a3d3a; }
+    .ejercicio label { display: block; margin: 6px 0; cursor: pointer; }
+    .msg { margin-top: 8px; font-size: 0.9rem; }
+  </style>
 </head>
 <body>
 
   <header>
     <div class="header-content">
       <a href="index.html" class="logo">
+        <span>XML</span>
         <span>Aula XML</span>
       </a>
-
       <nav id="menu">
         <a href="index.html">Inicio</a>
         <a href="temario.html">Temario</a>
@@ -21,39 +44,85 @@
         <a href="practicas.html" class="activo">Prácticas</a>
         <a href="progreso.html">Mi progreso</a>
       </nav>
+      <div class="header-botones">
+        <button class="btn-tema" id="cambiarTema">🌓</button>
+        <button class="btn-menu" id="abrirMenu">☰</button>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <h1 style="margin-bottom: 8px;">Prácticas</h1>
-      <p style="color: var(--texto2); margin-bottom: 28px;">
-        Tests, ejercicios de encontrar errores y un modo examen.
-        Al responder verás si es correcto y una explicación breve.
+      <h1>Prácticas</h1>
+      <p style="color: var(--texto2); margin-bottom: 20px;">
+        Tests y ejercicios para comprobar si entiendes las reglas de XML.
       </p>
 
-      <div class="grid-tarjetas">
-        <div class="tarjeta">
-          <span class="badge">Test</span>
-          <h3 style="margin: 10px 0 6px;">Preguntas tipo test</h3>
-          <p style="font-size: 0.9rem; color: var(--texto2);">Conceptos, sintaxis y reglas de buena formación.</p>
-          <p style="font-size: 0.8rem; color: var(--texto3); margin-top: 12px;">Disponible en Fase 3</p>
-        </div>
-
-        <div class="tarjeta">
-          <span class="badge">Errores</span>
-          <h3 style="margin: 10px 0 6px;">Encuentra el error</h3>
-          <p style="font-size: 0.9rem; color: var(--texto2);">Se muestra un XML con fallos. Tienes que detectarlos.</p>
-          <p style="font-size: 0.8rem; color: var(--texto3); margin-top: 12px;">Disponible en Fase 3</p>
-        </div>
-
-        <div class="tarjeta">
-          <span class="badge">Examen</span>
-          <h3 style="margin: 10px 0 6px;">Modo examen</h3>
-          <p style="font-size: 0.9rem; color: var(--texto2);">Mezcla de preguntas, tiempo y pantalla de resultados.</p>
-          <p style="font-size: 0.8rem; color: var(--texto3); margin-top: 12px;">Disponible en Fase 3</p>
-        </div>
+      <!-- Test 1 -->
+      <div class="ejercicio">
+        <span class="badge">Test</span>
+        <h3 style="margin: 8px 0;">1. ¿Qué es un documento bien formado?</h3>
+        <label><input type="radio" name="t1" value="a"> Uno que tiene DTD o XSD</label>
+        <label><input type="radio" name="t1" value="b"> Uno que cumple las reglas básicas de sintaxis XML</label>
+        <label><input type="radio" name="t1" value="c"> Uno escrito solo en minúsculas</label>
+        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('t1','b', this)">Comprobar</button>
+        <p class="msg"></p>
       </div>
+
+      <!-- Test 2 -->
+      <div class="ejercicio">
+        <span class="badge">Test</span>
+        <h3 style="margin: 8px 0;">2. Los atributos en XML deben ir…</h3>
+        <label><input type="radio" name="t2" value="a"> Sin comillas</label>
+        <label><input type="radio" name="t2" value="b"> Entre comillas</label>
+        <label><input type="radio" name="t2" value="c"> Solo si son números</label>
+        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('t2','b', this)">Comprobar</button>
+        <p class="msg"></p>
+      </div>
+
+      <!-- Encuentra el error 1 -->
+      <div class="ejercicio">
+        <span class="badge">Error</span>
+        <h3 style="margin: 8px 0;">3. ¿Qué falla en este XML?</h3>
+        <div class="codigo">&lt;libro&gt;
+  &lt;titulo&gt;XML fácil
+  &lt;autor&gt;Ana&lt;/autor&gt;
+&lt;/libro&gt;</div>
+        <label><input type="radio" name="e1" value="a"> Falta la declaración XML</label>
+        <label><input type="radio" name="e1" value="b"> La etiqueta titulo no está cerrada</label>
+        <label><input type="radio" name="e1" value="c"> Hay dos raíces</label>
+        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('e1','b', this)">Comprobar</button>
+        <p class="msg"></p>
+      </div>
+
+      <!-- Encuentra el error 2 -->
+      <div class="ejercicio">
+        <span class="badge">Error</span>
+        <h3 style="margin: 8px 0;">4. ¿Qué falla aquí?</h3>
+        <div class="codigo">&lt;persona&gt;
+  &lt;nombre&gt;Luis&lt;/nombre&gt;
+&lt;/persona&gt;
+&lt;persona&gt;
+  &lt;nombre&gt;María&lt;/nombre&gt;
+&lt;/persona&gt;</div>
+        <label><input type="radio" name="e2" value="a"> Los nombres no coinciden</label>
+        <label><input type="radio" name="e2" value="b"> Hay más de una raíz</label>
+        <label><input type="radio" name="e2" value="c"> Faltan atributos</label>
+        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('e2','b', this)">Comprobar</button>
+        <p class="msg"></p>
+      </div>
+
+      <!-- Test 3 -->
+      <div class="ejercicio">
+        <span class="badge">Test</span>
+        <h3 style="margin: 8px 0;">5. Un documento válido…</h3>
+        <label><input type="radio" name="t3" value="a"> No tiene por qué estar bien formado</label>
+        <label><input type="radio" name="t3" value="b"> Siempre está bien formado</label>
+        <label><input type="radio" name="t3" value="c"> Solo usa etiquetas en inglés</label>
+        <button class="boton boton-verde" style="margin-top:10px" onclick="corregir('t3','b', this)">Comprobar</button>
+        <p class="msg"></p>
+      </div>
+
     </div>
   </main>
 
@@ -65,5 +134,23 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    function corregir(name, bien, btn) {
+      var elegida = document.querySelector('input[name="' + name + '"]:checked');
+      var msg = btn.parentElement.querySelector(".msg");
+      if (!elegida) {
+        msg.textContent = "Elige una opción.";
+        msg.style.color = "#d97706";
+        return;
+      }
+      if (elegida.value === bien) {
+        msg.textContent = "Correcto.";
+        msg.style.color = "#059669";
+      } else {
+        msg.textContent = "Incorrecto. Revisa el temario.";
+        msg.style.color = "#dc2626";
+      }
+    }
+  </script>
 </body>
 </html>
