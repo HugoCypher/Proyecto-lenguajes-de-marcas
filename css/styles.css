@@ -836,3 +836,6 @@ input:focus-visible {
   border-color: var(--verde);
   background: var(--suave);
 }
+.temario-unidades .bloque > .btn {
+  margin-top: 16px;
+}

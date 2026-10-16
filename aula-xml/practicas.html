@@ -35,19 +35,19 @@
         <a href="progreso.html">Mi progreso</a>
       </nav>
 
-<div class="acciones-h">
-  <span class="pct" id="pct">0%</span>
+      <div class="acciones-h">
+        <span class="pct" id="pct">0%</span>
 
-  <button
-    type="button"
-    class="icono"
-    id="cambiarTema"
-    aria-label="Cambiar tema claro u oscuro"
-    title="Cambiar tema"
-  >
-    ☾
-  </button>
-</div>
+        <button
+          type="button"
+          class="icono"
+          id="cambiarTema"
+          aria-label="Cambiar tema claro u oscuro"
+          title="Cambiar tema"
+        >
+          ☾
+        </button>
+      </div>
 
     </div>
   </header>
@@ -109,7 +109,8 @@
         <button
           type="button"
           class="btn btn-verde"
-          onclick="corregir('t1', 'b', this)"
+          data-practica="t1"
+          data-ok="b"
         >
           Comprobar
         </button>
@@ -145,7 +146,8 @@
         <button
           type="button"
           class="btn btn-verde"
-          onclick="corregir('t2', 'b', this)"
+          data-practica="t2"
+          data-ok="b"
         >
           Comprobar
         </button>
@@ -186,7 +188,8 @@
         <button
           type="button"
           class="btn btn-verde"
-          onclick="corregir('e1', 'b', this)"
+          data-practica="e1"
+          data-ok="b"
         >
           Comprobar
         </button>
@@ -229,7 +232,8 @@
         <button
           type="button"
           class="btn btn-verde"
-          onclick="corregir('e2', 'b', this)"
+          data-practica="e2"
+          data-ok="b"
         >
           Comprobar
         </button>
@@ -265,7 +269,8 @@
         <button
           type="button"
           class="btn btn-verde"
-          onclick="corregir('t3', 'b', this)"
+          data-practica="t3"
+          data-ok="b"
         >
           Comprobar
         </button>
@@ -280,8 +285,8 @@
       <h2 id="titulo-seguir">Sigue practicando</h2>
 
       <p class="muted">
-        Repasa las unidades o prueba tus propios ejemplos
-        en el laboratorio.
+        Repasa las unidades, prueba tus propios ejemplos
+        o consulta tus resultados.
       </p>
 
       <div class="botones">
@@ -291,6 +296,10 @@
 
         <a href="laboratorio.html" class="btn btn-linea">
           Abrir laboratorio
+        </a>
+
+        <a href="progreso.html" class="btn btn-linea">
+          Mi progreso
         </a>
       </div>
     </section>
@@ -305,36 +314,6 @@
   </footer>
 
   <script src="../js/main.js"></script>
-
-  <script>
-    function corregir(name, bien, btn) {
-      var ejercicio = btn.closest(".ejercicio");
-
-      var elegida = ejercicio.querySelector(
-        'input[name="' + name + '"]:checked'
-      );
-
-      var msg = ejercicio.querySelector(".msg");
-
-      msg.classList.remove("ok", "mal", "aviso");
-
-      if (!elegida) {
-        msg.textContent = "Elige una opción antes de comprobar.";
-        msg.classList.add("aviso");
-        return;
-      }
-
-      if (elegida.value === bien) {
-        msg.textContent = "Correcto. ¡Bien hecho!";
-        msg.classList.add("ok");
-      } else {
-        msg.textContent =
-          "Incorrecto. Revisa el temario y vuelve a intentarlo.";
-
-        msg.classList.add("mal");
-      }
-    }
-  </script>
 
 </body>
 </html>

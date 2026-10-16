@@ -34,7 +34,19 @@
         <a href="progreso.html">Mi progreso</a>
       </nav>
 
-      <div class="acciones-h"></div>
+      <div class="acciones-h">
+        <span class="pct" id="pct">0%</span>
+
+        <button
+          type="button"
+          class="icono"
+          id="cambiarTema"
+          aria-label="Cambiar tema claro u oscuro"
+          title="Cambiar tema"
+        >
+          ☾
+        </button>
+      </div>
 
     </div>
   </header>
@@ -50,8 +62,8 @@
       </h1>
 
       <p>
-        Lee las unidades, prueba fragmentos y encuentra errores
-        con ejemplos y ejercicios.
+        Lee las unidades, prueba fragmentos y encuentra errores.
+        Consulta tu avance mientras completas las actividades.
       </p>
 
       <div class="botones">
@@ -66,13 +78,17 @@
     </section>
 
     <!-- Accesos a las secciones -->
-    <section class="grid inicio-secciones" aria-label="Secciones del aula">
+    <section
+      class="grid inicio-secciones"
+      aria-label="Secciones del aula"
+    >
 
       <a href="temario.html" class="card">
         <h2>Temario</h2>
 
         <p>
           Unidades con ejemplos y reglas de XML.
+          Marca las lecciones que hayas visto.
         </p>
       </a>
 
@@ -80,7 +96,8 @@
         <h2>Laboratorio</h2>
 
         <p>
-          Pega un XML y revisa los mensajes del comprobador.
+          Pega tu código XML y revisa los mensajes
+          del comprobador.
         </p>
       </a>
 
@@ -88,7 +105,8 @@
         <h2>Prácticas</h2>
 
         <p>
-          Tests y ejercicios para encontrar el error.
+          Responde los tests y encuentra los errores
+          en los ejemplos.
         </p>
       </a>
 
@@ -96,34 +114,32 @@
         <h2>Mi progreso</h2>
 
         <p>
-          Consulta el apartado de seguimiento de tu aprendizaje.
+          Consulta las lecciones vistas, los resultados
+          y los análisis del laboratorio.
         </p>
       </a>
 
     </section>
 
-    <!-- Progreso provisional -->
-    <section class="caja-suave" aria-labelledby="titulo-avance-inicio">
+    <!-- Resumen del progreso -->
+    <section
+      class="caja-suave"
+      aria-labelledby="titulo-avance-inicio"
+    >
 
       <div class="fila">
         <h2 id="titulo-avance-inicio">Tu progreso</h2>
-        <span class="pill">0%</span>
+
+        <span class="pill" id="pill">0%</span>
       </div>
 
-      <div
-        class="track"
-        role="progressbar"
-        aria-label="Avance general"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        aria-valuenow="0"
-      >
-        <div class="fill"></div>
+      <div class="track">
+        <div class="fill" id="barraFill"></div>
       </div>
 
-      <p class="nota">
-        El seguimiento del progreso está pendiente de implementar.
-        El porcentaje mostrado es provisional.
+      <p class="nota" id="notaHome">
+        0 lecciones vistas · 0 prácticas correctas ·
+        0 análisis en el laboratorio
       </p>
 
       <div class="botones">
@@ -143,7 +159,7 @@
     </div>
   </footer>
 
-<script src="../js/main.js"></script>
+  <script src="../js/main.js"></script>
 
 </body>
 </html>
