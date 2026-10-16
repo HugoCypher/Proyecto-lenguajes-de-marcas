@@ -3,73 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Aula XML - Mi progreso</title>
+
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
   <header>
-    <div class="header-content">
+    <div class="barra">
+
       <a href="index.html" class="logo">
+        <b>XML</b>
         <span>Aula XML</span>
       </a>
 
-      <nav id="menu">
+      <nav class="menu" id="menu" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <a href="temario.html">Temario</a>
         <a href="laboratorio.html">Laboratorio</a>
         <a href="practicas.html">Prácticas</a>
-        <a href="progreso.html" class="activo">Mi progreso</a>
+
+        <a
+          href="progreso.html"
+          class="activo"
+          aria-current="page"
+        >
+          Mi progreso
+        </a>
       </nav>
+
+      <div class="acciones-h"></div>
+
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <h1 style="margin-bottom: 8px;">Mi progreso</h1>
-      <p style="color: var(--texto2); margin-bottom: 24px;">
-        Aquí se verán las lecciones completadas, resultados e intentos.
+  <main class="contenido">
+
+    <!-- Presentación -->
+    <section class="hero" aria-labelledby="titulo-progreso">
+      <p class="mini">Tu aprendizaje</p>
+
+      <h1 id="titulo-progreso">Mi progreso</h1>
+
+      <p>
+        Aquí podrás consultar las lecciones completadas,
+        los resultados de las prácticas y tus próximos repasos.
       </p>
 
-      <div class="tarjeta" style="margin-bottom: 20px;">
-        <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
-          <strong>Avance general</strong>
-          <span class="badge">0%</span>
-        </div>
-        <div class="barra">
-          <div class="barra-relleno" style="width:0%"></div>
-        </div>
+      <div class="botones">
+        <a href="temario.html" class="btn btn-blanco">
+          Ir al temario
+        </a>
+
+        <a href="practicas.html" class="btn btn-borde-b">
+          Hacer prácticas
+        </a>
+      </div>
+    </section>
+
+    <!-- Avance general -->
+    <section class="caja-suave" aria-labelledby="titulo-avance">
+
+      <div class="fila">
+        <h2 id="titulo-avance">Avance general</h2>
+        <span class="pill">0%</span>
       </div>
 
-      <div class="grid-tarjetas">
-        <div class="tarjeta">
+      <div
+        class="track"
+        role="progressbar"
+        aria-label="Avance general"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >
+        <div class="fill"></div>
+      </div>
+
+      <p class="nota">
+        El seguimiento del progreso está pendiente de implementar.
+        Los valores mostrados son provisionales.
+      </p>
+
+    </section>
+
+    <!-- Resumen -->
+    <section class="progreso-resumen" aria-labelledby="titulo-resumen">
+      <h2 id="titulo-resumen">Resumen de actividad</h2>
+
+      <div class="stats">
+
+        <div class="card">
+          <span class="pill">Temario</span>
+
           <h3>Lecciones</h3>
-          <p style="font-size: 1.4rem; margin: 8px 0;">0 / 0</p>
-          <p style="font-size: 0.85rem; color: var(--texto3);">Se guardará en Fase 4</p>
+
+          <strong>—</strong>
+
+          <p>
+            El registro de lecciones completadas se añadirá
+            en la Fase 4.
+          </p>
         </div>
 
-        <div class="tarjeta">
+        <div class="card">
+          <span class="pill">Prácticas</span>
+
           <h3>Ejercicios</h3>
-          <p style="font-size: 1.4rem; margin: 8px 0;">0 intentos</p>
-          <p style="font-size: 0.85rem; color: var(--texto3);">Se guardará en Fase 4</p>
+
+          <strong>—</strong>
+
+          <p>
+            El guardado de intentos y resultados se añadirá
+            en la Fase 4.
+          </p>
         </div>
 
-        <div class="tarjeta">
+        <div class="card">
+          <span class="pill">Repaso</span>
+
           <h3>A repasar</h3>
-          <p style="font-size: 1.4rem; margin: 8px 0;">Ninguno</p>
-          <p style="font-size: 0.85rem; color: var(--texto3);">Según resultados</p>
+
+          <strong>—</strong>
+
+          <p>
+            Las recomendaciones estarán disponibles
+            cuando se registren los resultados.
+          </p>
         </div>
+
       </div>
-    </div>
+    </section>
+
+    <!-- Accesos -->
+    <section class="caja-suave" aria-labelledby="titulo-continuar">
+      <h2 id="titulo-continuar">Continúa aprendiendo</h2>
+
+      <p class="muted">
+        Repasa los conceptos, resuelve ejercicios o prueba
+        tus propios ejemplos de XML.
+      </p>
+
+      <div class="botones">
+        <a href="temario.html" class="btn btn-verde">
+          Ver temario
+        </a>
+
+        <a href="practicas.html" class="btn btn-linea">
+          Ir a prácticas
+        </a>
+
+        <a href="laboratorio.html" class="btn btn-linea">
+          Abrir laboratorio
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <div class="footer-content">
-      <p>Aula XML - Hugo Fernández Riquelme - 2026</p>
+    <div class="pie">
+      <p>Aula XML · Hugo Fernández Riquelme · 2026</p>
       <p>Lenguajes de marcas</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+
 </body>
 </html>
