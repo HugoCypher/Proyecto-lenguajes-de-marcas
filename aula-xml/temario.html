@@ -21,27 +21,33 @@
 
       <nav class="menu" id="menu" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
-        <a href="temario.html" class="activo" aria-current="page">
+
+        <a
+          href="temario.html"
+          class="activo"
+          aria-current="page"
+        >
           Temario
         </a>
+
         <a href="laboratorio.html">Laboratorio</a>
         <a href="practicas.html">Prácticas</a>
         <a href="progreso.html">Mi progreso</a>
       </nav>
 
-<div class="acciones-h">
-  <span class="pct" id="pct">0%</span>
+      <div class="acciones-h">
+        <span class="pct" id="pct">0%</span>
 
-  <button
-    type="button"
-    class="icono"
-    id="cambiarTema"
-    aria-label="Cambiar tema claro u oscuro"
-    title="Cambiar tema"
-  >
-    ☾
-  </button>
-</div>
+        <button
+          type="button"
+          class="icono"
+          id="cambiarTema"
+          aria-label="Cambiar tema claro u oscuro"
+          title="Cambiar tema"
+        >
+          ☾
+        </button>
+      </div>
 
     </div>
   </header>
@@ -55,8 +61,8 @@
       <h1 id="titulo-temario">Temario de XML</h1>
 
       <p>
-        Explora las unidades, conoce las reglas y aprende
-        con ejemplos prácticos.
+        Explora las unidades, revisa los ejemplos y marca
+        cada lección cuando termines de leerla.
       </p>
 
       <div class="botones">
@@ -73,6 +79,7 @@
     <!-- Unidades -->
     <div class="lista temario-unidades" id="unidades">
 
+      <!-- Unidad 1 -->
       <section class="bloque" aria-labelledby="unidad-1">
         <span class="pill">Unidad 1</span>
 
@@ -91,19 +98,24 @@
         <p><strong>Ejemplo:</strong></p>
 
         <pre class="codigo"><code>&lt;persona&gt;
-          &lt;nombre&gt;Laura&lt;/nombre&gt;
-          &lt;edad&gt;22&lt;/edad&gt;
-          &lt;/persona&gt;</code>
-        </pre>
+  &lt;nombre&gt;Laura&lt;/nombre&gt;
+  &lt;edad&gt;22&lt;/edad&gt;
+&lt;/persona&gt;</code></pre>
 
         <p class="nota">
           Árbol: persona → nombre, edad.
         </p>
-        <button type="button" class="btn btn-verde" data-leccion="u1">
+
+        <button
+          type="button"
+          class="btn btn-verde"
+          data-leccion="u1"
+        >
           Marcar como vista
         </button>
       </section>
 
+      <!-- Unidad 2 -->
       <section class="bloque" aria-labelledby="unidad-2">
         <span class="pill">Unidad 2</span>
 
@@ -119,14 +131,19 @@
         </p>
 
         <pre class="codigo"><code>&lt;libro id="1" idioma="es"&gt;
-          &lt;titulo&gt;Aprendiendo XML&lt;/titulo&gt;
-          &lt;/libro&gt;</code></pre>
+  &lt;titulo&gt;Aprendiendo XML&lt;/titulo&gt;
+&lt;/libro&gt;</code></pre>
 
-      <button type="button" class="btn btn-verde" data-leccion="u2">
-        Marcar como vista
-      </button>
+        <button
+          type="button"
+          class="btn btn-verde"
+          data-leccion="u2"
+        >
+          Marcar como vista
+        </button>
       </section>
 
+      <!-- Unidad 3 -->
       <section class="bloque" aria-labelledby="unidad-3">
         <span class="pill">Unidad 3</span>
 
@@ -143,11 +160,17 @@
           <li>Anidación correcta.</li>
           <li>Atributos entre comillas.</li>
         </ul>
-        <button type="button" class="btn btn-verde" data-leccion="u3">
+
+        <button
+          type="button"
+          class="btn btn-verde"
+          data-leccion="u3"
+        >
           Marcar como vista
         </button>
       </section>
 
+      <!-- Unidad 4 -->
       <section class="bloque" aria-labelledby="unidad-4">
         <span class="pill">Unidad 4</span>
 
@@ -165,11 +188,17 @@
         </p>
 
         <p>Si no está bien formado, no puede ser válido.</p>
-        <button type="button" class="btn btn-verde" data-leccion="u4">
+
+        <button
+          type="button"
+          class="btn btn-verde"
+          data-leccion="u4"
+        >
           Marcar como vista
         </button>
       </section>
 
+      <!-- Unidad 5 -->
       <section class="bloque" aria-labelledby="unidad-5">
         <span class="pill">Unidad 5</span>
 
@@ -181,24 +210,29 @@
         </p>
 
         <pre class="codigo"><code>&lt;root xmlns:lib="http://ejemplo.com/libros"&gt;
-          &lt;lib:libro&gt;
-          &lt;lib:titulo&gt;XML práctico&lt;/lib:titulo&gt;
-          &lt;/lib:libro&gt;
-          &lt;/root&gt;</code>
-        </pre>
-        <button type="button" class="btn btn-verde" data-leccion="u5">
+  &lt;lib:libro&gt;
+    &lt;lib:titulo&gt;XML práctico&lt;/lib:titulo&gt;
+  &lt;/lib:libro&gt;
+&lt;/root&gt;</code></pre>
+
+        <button
+          type="button"
+          class="btn btn-verde"
+          data-leccion="u5"
+        >
           Marcar como vista
         </button>
       </section>
 
     </div>
 
-    <!-- Acceso a prácticas -->
-    <section class="caja-suave" aria-labelledby="titulo-practicar">
-      <h2 id="titulo-practicar">¿Preparado para practicar?</h2>
+    <!-- Accesos -->
+    <section class="caja-suave" aria-labelledby="titulo-continuar">
+      <h2 id="titulo-continuar">Continúa aprendiendo</h2>
 
       <p class="muted">
-        Repasa lo aprendido con los tests y ejercicios.
+        Pon a prueba lo aprendido o consulta las lecciones
+        que ya has marcado como vistas.
       </p>
 
       <div class="botones">
@@ -208,6 +242,10 @@
 
         <a href="laboratorio.html" class="btn btn-linea">
           Abrir laboratorio
+        </a>
+
+        <a href="progreso.html" class="btn btn-linea">
+          Mi progreso
         </a>
       </div>
     </section>

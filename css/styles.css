@@ -839,3 +839,7 @@ input:focus-visible {
 .temario-unidades .bloque > .btn {
   margin-top: 16px;
 }
+/* Separación de los botones de las lecciones */
+.temario-unidades .bloque > .btn {
+  margin-top: 16px;
+}
