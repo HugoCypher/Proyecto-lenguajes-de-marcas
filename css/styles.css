@@ -187,3 +187,47 @@ button:focus-visible {
     padding: 8px 10px;
   }
 }
+/* ============================================
+   Laboratorio
+   ============================================ */
+
+.laboratorio-panel {
+  margin-top: 32px;
+  align-items: stretch;
+  scroll-margin-top: 90px;
+}
+
+.laboratorio-panel .bloque {
+  min-width: 0;
+}
+
+.laboratorio-panel h2 {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+.laboratorio-panel textarea {
+  display: block;
+  min-height: 300px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.laboratorio-panel .resultado {
+  min-height: 300px;
+  overflow-wrap: anywhere;
+}
+
+.laboratorio-panel .resultado p + p {
+  margin-top: 8px;
+}
+
+.laboratorio-botones {
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+
+.laboratorio-panel textarea:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+}

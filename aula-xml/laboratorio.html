@@ -3,92 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Aula XML - Laboratorio</title>
+
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    .lab {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    @media (max-width: 800px) {
-      .lab { grid-template-columns: 1fr; }
-    }
-    textarea {
-      width: 100%;
-      min-height: 260px;
-      font-family: Consolas, Monaco, monospace;
-      font-size: 0.9rem;
-      padding: 12px;
-      border: 1px solid var(--borde);
-      border-radius: 6px;
-      background: var(--blanco);
-      color: var(--texto);
-      resize: vertical;
-    }
-    .resultado {
-      min-height: 260px;
-      background: var(--gris-claro);
-      border: 1px solid var(--borde);
-      border-radius: 6px;
-      padding: 12px;
-      font-size: 0.9rem;
-    }
-    .ok { color: #059669; }
-    .error { color: #dc2626; margin: 6px 0; }
-    .botones { margin-top: 10px; display: flex; gap: 8px; }
-  </style>
 </head>
+
 <body>
 
   <header>
-    <div class="header-content">
+    <div class="barra">
+
       <a href="index.html" class="logo">
-        <span>XML</span>
+        <b>XML</b>
         <span>Aula XML</span>
       </a>
-      <nav id="menu">
+
+      <nav class="menu" id="menu" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <a href="temario.html">Temario</a>
-        <a href="laboratorio.html" class="activo">Laboratorio</a>
+
+        <a
+          href="laboratorio.html"
+          class="activo"
+          aria-current="page"
+        >
+          Laboratorio
+        </a>
+
         <a href="practicas.html">Prácticas</a>
         <a href="progreso.html">Mi progreso</a>
       </nav>
+
+      <div class="acciones-h"></div>
+
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <h1>Laboratorio XML</h1>
-      <p style="color: var(--texto2); margin-bottom: 20px;">
-        Pega un XML y comprueba si está bien formado.
+  <main class="contenido">
+
+    <!-- Presentación -->
+    <section class="hero" aria-labelledby="titulo-laboratorio">
+      <p class="mini">Prueba y aprende</p>
+
+      <h1 id="titulo-laboratorio">Laboratorio XML</h1>
+
+      <p>
+        Pega tu código, analiza su estructura y revisa
+        los errores que detecta el comprobador.
       </p>
 
-      <div class="lab">
-        <div>
-          <label for="xmlInput" style="font-weight: 600;">Código XML</label>
-          <textarea id="xmlInput"></textarea>
-          <div class="botones">
-            <button class="boton boton-verde" id="btnAnalizar">Analizar</button>
-            <button class="boton boton-borde" id="btnLimpiar">Limpiar</button>
-          </div>
-        </div>
-        <div>
-          <label style="font-weight: 600;">Resultado</label>
-          <div class="resultado" id="resultado">Aquí saldrá el análisis.</div>
+      <div class="botones">
+        <a href="#editor" class="btn btn-blanco">
+          Probar mi XML
+        </a>
+
+        <a href="temario.html" class="btn btn-borde-b">
+          Consultar temario
+        </a>
+      </div>
+    </section>
+
+    <!-- Editor y resultado -->
+    <section
+      class="lab laboratorio-panel"
+      id="editor"
+      aria-label="Editor y análisis de XML"
+    >
+
+      <div class="bloque">
+        <h2>
+          <label for="xmlInput">Código XML</label>
+        </h2>
+
+        <p class="muted" id="ayuda-xml">
+          Escribe o pega aquí el documento que quieras comprobar.
+        </p>
+
+        <textarea
+          id="xmlInput"
+          aria-describedby="ayuda-xml"
+          spellcheck="false"
+          placeholder="Escribe aquí tu XML..."
+        ></textarea>
+
+        <div class="botones laboratorio-botones">
+          <button
+            type="button"
+            class="btn btn-verde"
+            id="btnAnalizar"
+          >
+            Analizar XML
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-linea"
+            id="btnLimpiar"
+          >
+            Limpiar
+          </button>
         </div>
       </div>
-    </div>
+
+      <div class="bloque">
+        <h2 id="titulo-resultado">Resultado</h2>
+
+        <p class="muted">
+          Aquí aparecerán los mensajes del análisis.
+        </p>
+
+        <div
+          class="resultado"
+          id="resultado"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          aria-labelledby="titulo-resultado"
+        >
+          Aquí saldrá el análisis.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Ayuda -->
+    <section class="caja-suave" aria-labelledby="titulo-ayuda">
+      <h2 id="titulo-ayuda">¿Necesitas repasar?</h2>
+
+      <p class="muted">
+        Consulta las unidades del temario o continúa
+        con los ejercicios de práctica.
+      </p>
+
+      <div class="botones">
+        <a href="temario.html" class="btn btn-verde">
+          Ver temario
+        </a>
+
+        <a href="practicas.html" class="btn btn-linea">
+          Ir a prácticas
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <div class="footer-content">
-      <p>Aula XML - Hugo Fernández Riquelme - 2026</p>
+    <div class="pie">
+      <p>Aula XML · Hugo Fernández Riquelme · 2026</p>
       <p>Lenguajes de marcas</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+
   <script>
     function analizar(texto) {
       var errores = [];
@@ -99,7 +168,6 @@
         return errores;
       }
 
-      // Buscar todas las etiquetas
       var pila = [];
       var raices = 0;
       var re = /<\/?([a-zA-Z_][\w:.-]*)[^>]*\/?>/g;
@@ -109,31 +177,45 @@
         var etiq = m[0];
         var nombre = m[1];
 
-        // Etiqueta de autocierre: <algo />
+        // Etiqueta de autocierre
         if (etiq.charAt(etiq.length - 2) === "/") {
-          if (pila.length === 0) raices++;
+          if (pila.length === 0) {
+            raices++;
+          }
+
           continue;
         }
 
-        // Cierre: </algo>
+        // Etiqueta de cierre
         if (etiq.charAt(1) === "/") {
           if (pila.length === 0) {
-            errores.push("Cierre inesperado: </" + nombre + ">");
+            errores.push(
+              "Cierre inesperado: </" + nombre + ">"
+            );
           } else {
             var ultimo = pila.pop();
+
             if (ultimo !== nombre) {
-              errores.push("Se abrió <" + ultimo + "> y se cerró </" + nombre + ">");
+              errores.push(
+                "Se abrió <" + ultimo +
+                "> y se cerró </" + nombre + ">"
+              );
             }
           }
         } else {
-          // Apertura: <algo>
-          if (pila.length === 0) raices++;
+          // Etiqueta de apertura
+          if (pila.length === 0) {
+            raices++;
+          }
+
           pila.push(nombre);
         }
       }
 
       if (pila.length > 0) {
-        errores.push("Etiquetas sin cerrar: " + pila.join(", "));
+        errores.push(
+          "Etiquetas sin cerrar: " + pila.join(", ")
+        );
       }
 
       if (raices === 0) {
@@ -141,7 +223,9 @@
       }
 
       if (raices > 1) {
-        errores.push("Hay más de una raíz (solo puede haber una).");
+        errores.push(
+          "Hay más de una raíz (solo puede haber una)."
+        );
       }
 
       return errores;
@@ -152,21 +236,44 @@
       var errores = analizar(texto);
       var caja = document.getElementById("resultado");
 
+      caja.textContent = "";
+
       if (errores.length === 0) {
-        caja.innerHTML = '<p class="ok"><strong>Bien formado.</strong></p>';
+        var correcto = document.createElement("p");
+
+        correcto.className = "ok";
+        correcto.textContent =
+          "No se han detectado errores con este comprobador.";
+
+        caja.appendChild(correcto);
       } else {
-        var html = "<p><strong>Errores:</strong></p>";
+        var titulo = document.createElement("p");
+
+        titulo.textContent = "Errores detectados:";
+        caja.appendChild(titulo);
+
         for (var i = 0; i < errores.length; i++) {
-          html += '<p class="error">- ' + errores[i] + "</p>";
+          var mensaje = document.createElement("p");
+
+          mensaje.className = "mal";
+          mensaje.textContent = "• " + errores[i];
+
+          caja.appendChild(mensaje);
         }
-        caja.innerHTML = html;
       }
     };
 
     document.getElementById("btnLimpiar").onclick = function () {
-      document.getElementById("xmlInput").value = "";
-      document.getElementById("resultado").innerHTML = "Aquí saldrá el análisis.";
+      var entrada = document.getElementById("xmlInput");
+
+      entrada.value = "";
+
+      document.getElementById("resultado").textContent =
+        "Aquí saldrá el análisis.";
+
+      entrada.focus();
     };
   </script>
+
 </body>
 </html>
