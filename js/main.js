@@ -89,26 +89,79 @@ function analizar(texto) {
 }
 function prepararLab() {
   var btn = document.getElementById("btnAnalizar");
-  if (!btn) return;
+
+  if (!btn) {
+    return;
+  }
+
+  var entrada = document.getElementById("xmlInput");
+  var caja = document.getElementById("resultado");
+  var btnLimpiar = document.getElementById("btnLimpiar");
+
   btn.onclick = function () {
-    var errores = analizar(document.getElementById("xmlInput").value);
-    var caja = document.getElementById("resultado");
-    var p = cargar();
-    p.labIntentos++;
-    if (!errores.length) p.labOk++;
-    guardar(p);
+    var texto = entrada.value;
+
+    caja.textContent = "";
+
+    // No registrar un análisis si el editor está vacío.
+    if (!texto.trim()) {
+      var aviso = document.createElement("p");
+
+      aviso.className = "mal";
+      aviso.textContent = "Escribe o pega un XML antes de analizar.";
+
+      caja.appendChild(aviso);
+      entrada.focus();
+      return;
+    }
+
+    var errores = analizar(texto);
+
+    // Guardar el intento y su resultado.
+    var datos = cargar();
+
+    datos.labIntentos++;
+
+    if (errores.length === 0) {
+      datos.labOk++;
+    }
+
+    guardar(datos);
     pintarCabecera();
-    if (!errores.length) caja.innerHTML = '<p class="ok">Bien formado.</p>';
-    else {
-      var html = "<p><strong>Errores:</strong></p>", i;
-      for (i = 0; i < errores.length; i++) html += '<p class="mal">- ' + errores[i] + "</p>";
-      caja.innerHTML = html;
+
+    // Mostrar el resultado como texto.
+    if (errores.length === 0) {
+      var correcto = document.createElement("p");
+
+      correcto.className = "ok";
+      correcto.textContent =
+        "No se han detectado errores con este comprobador.";
+
+      caja.appendChild(correcto);
+    } else {
+      var titulo = document.createElement("p");
+
+      titulo.textContent = "Errores detectados:";
+      caja.appendChild(titulo);
+
+      for (var i = 0; i < errores.length; i++) {
+        var mensaje = document.createElement("p");
+
+        mensaje.className = "mal";
+        mensaje.textContent = "• " + errores[i];
+
+        caja.appendChild(mensaje);
+      }
     }
   };
-  document.getElementById("btnLimpiar").onclick = function () {
-    document.getElementById("xmlInput").value = "";
-    document.getElementById("resultado").textContent = "Aquí saldrá el análisis.";
-  };
+
+  if (btnLimpiar) {
+    btnLimpiar.onclick = function () {
+      entrada.value = "";
+      caja.textContent = "Aquí saldrá el análisis.";
+      entrada.focus();
+    };
+  }
 }
 function prepararPracticas() {
   var botones = document.querySelectorAll("[data-practica]");
