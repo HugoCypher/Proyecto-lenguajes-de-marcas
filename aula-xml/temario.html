@@ -192,5 +192,23 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    function corregir(name, bien, btn) {
+      var elegida = document.querySelector('input[name="' + name + '"]:checked');
+      var msg = btn.parentElement.querySelector(".msg");
+      if (!elegida) {
+        msg.textContent = "Elige una opción.";
+        msg.style.color = "#d97706";
+        return;
+      }
+      if (elegida.value === bien) {
+        msg.textContent = "Correcto.";
+        msg.style.color = "#059669";
+      } else {
+        msg.textContent = "Incorrecto. Revisa el temario.";
+        msg.style.color = "#dc2626";
+      }
+    }
+  </script>
 </body>
 </html>
